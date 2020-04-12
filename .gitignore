@@ -29,3 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### WPF CLIENT ###
+SoapClient/.vs
+bin/
+obj/
