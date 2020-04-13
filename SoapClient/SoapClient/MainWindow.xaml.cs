@@ -1,4 +1,5 @@
 ﻿using SoapClient.HotelSoap;
+using SoapClient.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,16 +24,24 @@ namespace SoapClient
     {
         public MainWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
-            GetValue();
+           // GetValue();
         }
 
-        private string GetValue()
+        //private string GetValue()
+        //{
+        //    var client = new HotelsPortClient();
+        //    var request = new getNameRequest();
+        //    var response = client.getName(request);
+        //    return response.name;
+        //}
+
+        private void Start(object sender, RoutedEventArgs e)
         {
-            var client = new HotelsPortClient();
-            var request = new getNameRequest();
-            var response = client.getName(request);
-            return response.name;
+            var hotelsList = new HotelsList();
+            Close();
+            hotelsList.Show();
         }
     }
 }
