@@ -78,7 +78,7 @@
 
     </Window.Resources>
     <Grid>
-        <ListBox Name="listOfHotels" Margin="10,10,10,10"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox Name="listOfHotels" Margin="10,10,10,10"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ChooseHotel">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="7" Padding="20 20 20 0" Background="Azure" CornerRadius="8" BorderBrush="CornflowerBlue" BorderThickness="5">

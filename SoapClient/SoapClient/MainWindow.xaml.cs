@@ -1,5 +1,6 @@
 ﻿using SoapClient.HotelSoap;
 using SoapClient.Windows;
+using SoapClient.Windows.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +40,9 @@ namespace SoapClient
 
         private void Start(object sender, RoutedEventArgs e)
         {
-            var hotelsList = new HotelsList();
+            var window = new LogIn();
             Close();
-            hotelsList.Show();
+            window.Show();
         }
     }
 }

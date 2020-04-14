@@ -11,7 +11,6 @@ namespace Contracts.ViewModels.HotelsListModels
     public class Hotel
     {
         public string Name { get; set; }
-        public string Description { get; set; }
         public BitmapImage Image { get; set; }
 
         public Hotel(string name, byte[] imageData)

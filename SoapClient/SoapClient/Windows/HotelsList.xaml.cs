@@ -1,4 +1,5 @@
-﻿using Contracts.ViewModels.HotelsListModels;
+﻿using Contracts.Models;
+using Contracts.ViewModels.HotelsListModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,13 +22,15 @@ namespace SoapClient.Windows
     /// </summary>
     public partial class HotelsList : Window
     {
-        public List<Hotel> hotelsList { get; set; }
-        public HotelsList()
+        public List<Hotel> ListOfHotels { get; set; }
+        public Account Account { get; set; }
+
+        public HotelsList(Account account)
         {
-            hotelsList = PrepareHotelsList();
+            ListOfHotels = PrepareHotelsList();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
-            listOfHotels.ItemsSource = hotelsList;
+            listOfHotels.ItemsSource = ListOfHotels;
         }
 
         private byte[] imageConversion(string imageName)
@@ -51,6 +54,19 @@ namespace SoapClient.Windows
                 new Hotel("Hotel Gołębiewski no prawie", imageConversion("lena.jpg")),
                 new Hotel("Fajny hotel", imageConversion("dubaj.jpg")),
             };
+        }
+
+        private void ChooseHotel(object sender, MouseButtonEventArgs e)
+        {
+            int i = 0;
+            while (listOfHotels.SelectedIndex != i)
+            {
+                i++;
+            }
+            var hotel = ListOfHotels[i];
+            //Close();
+            var roomsList = new RoomsList(hotel);
+            roomsList.Show();
         }
     }
 }

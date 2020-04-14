@@ -1,0 +1,22 @@
+﻿<Window x:Class="SoapClient.Windows.Authorization.LogIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoapClient.Windows.Authorization"
+        mc:Ignorable="d"
+        Title="LogIn" Height="450" Width="800">
+    <Grid>
+        <TextBox Name="LoginTextBox" GotFocus="LoginEnter" LostFocus="LoginLeave" TextAlignment="Center" Foreground="Silver" Height="30" Margin="207,70,207,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top"/>
+
+        <TextBox IsEnabled="false" Name="PasswordTextBox" TextAlignment="Center" Foreground="Black" Height="30" Margin="207,143,207,0" Text="Hasło" VerticalAlignment="Top"/>
+
+        <PasswordBox Name="PasswordTextBoxP" GotFocus="PasswordEnter" LostFocus="PasswordLeave" Height="30" Margin="207,143,207,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="378" />
+
+        <Button Content="Zaloguj się" Height="62" Margin="322,0,322,134" VerticalAlignment="Bottom" Click="Login"/>
+
+        <Button Content="Zarejestruj się" Height="62" Margin="322,0,322,39" VerticalAlignment="Bottom" Click="SignUp"/>
+
+
+    </Grid>
+</Window>
