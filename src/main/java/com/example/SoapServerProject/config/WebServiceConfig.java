@@ -24,7 +24,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean(servlet, "/soap/*");
     }
 
-    @Bean(name = "hotelReservation")
+    @Bean(name = "hotel")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema hotelsReservationSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("HotelsPort");
@@ -36,6 +36,6 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
     @Bean
     public XsdSchema hotelsReservationSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("hotelReservation.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("hotel.xsd"));
     }
 }

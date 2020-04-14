@@ -71,7 +71,7 @@
 				</executions>
 				<configuration>
 					<sources>
-						<source>${project.basedir}/src/main/resources/hotelReservation.xsd</source>
+						<source>${project.basedir}/src/main/resources/hotel.xsd</source>
 					</sources>
 				</configuration>
 			</plugin>
