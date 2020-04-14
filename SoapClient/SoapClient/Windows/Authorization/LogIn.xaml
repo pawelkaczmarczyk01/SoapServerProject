@@ -5,18 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SoapClient.Windows.Authorization"
         mc:Ignorable="d"
-        Title="LogIn" Height="450" Width="800">
+        Title="Logowanie" Height="450" Width="800">
     <Grid>
-        <TextBox Name="LoginTextBox" GotFocus="LoginEnter" LostFocus="LoginLeave" TextAlignment="Center" Foreground="Silver" Height="30" Margin="207,70,207,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top"/>
+        <TextBox  Name="LoginTextBox" GotFocus="LoginEnter" LostFocus="LoginLeave" TextAlignment="Center" Foreground="Silver" Height="50" Margin="175,47,175,0" FontSize="30" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top"/>
 
-        <TextBox IsEnabled="false" Name="PasswordTextBox" TextAlignment="Center" Foreground="Black" Height="30" Margin="207,143,207,0" Text="Hasło" VerticalAlignment="Top"/>
+        <TextBox IsEnabled="false" Name="PasswordTextBox" TextAlignment="Center" Foreground="Black" FontSize="30" Height="50" Margin="175,143,175,0" Text="Hasło" VerticalAlignment="Top"/>
 
-        <PasswordBox Name="PasswordTextBoxP" GotFocus="PasswordEnter" LostFocus="PasswordLeave" Height="30" Margin="207,143,207,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="378" />
+        <PasswordBox FontSize="30" Name="PasswordTextBoxP" GotFocus="PasswordEnter" LostFocus="PasswordLeave" Height="50" Margin="175,143,175,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" />
 
-        <Button Content="Zaloguj się" Height="62" Margin="322,0,322,134" VerticalAlignment="Bottom" Click="Login"/>
+        <Button Content="Zaloguj się" Height="62" Margin="175,0,458,56" VerticalAlignment="Bottom" Click="Login" FontSize="20"/>
 
-        <Button Content="Zarejestruj się" Height="62" Margin="322,0,322,39" VerticalAlignment="Bottom" Click="SignUp"/>
-
+        <Button Content="Zarejestruj się" Height="62" Margin="448,0,175,56" VerticalAlignment="Bottom" Click="SignUp" FontSize="20"/>
 
     </Grid>
 </Window>

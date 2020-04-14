@@ -39,7 +39,7 @@ namespace SoapClient.Windows.Authorization
             //{
             //    MessageBox.Show("Login jest zajęty.", "Błędny login", MessageBoxButton.OK, MessageBoxImage.Error);
             //}
-            if (LoginTextBox.Text.Length < 3 || LoginTextBox.Text == null)
+            if (LoginTextBox.Text.Length < 3 || LoginTextBox.Text == null || LoginTextBox.Text.Equals("Login"))
             {
                 MessageBox.Show("Login musi mieć przynajmniej 3 znaki.", "Błędny login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -69,7 +69,7 @@ namespace SoapClient.Windows.Authorization
             //}
             else
             {
-                var account = new Account(LoginTextBox.Text, PasswordTextBoxP.Password, EmailTextBox.Text, NameTextBox.Text, SurnameTextBox.Text, true);
+                var account = new Account(LoginTextBox.Text, PasswordTextBoxP.Password, EmailTextBox.Text, NameTextBox.Text, SurnameTextBox.Text, false);
                 MessageBox.Show("Konto założono poprawnie.", "Rejestracja zakończona", MessageBoxButton.OK);
                 var window = new LogIn();
                 Close();

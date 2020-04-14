@@ -103,7 +103,7 @@ namespace SoapClient.Windows.Authorization
             if (PasswordTextBoxP.Password == "" || PasswordTextBoxP.Password == null)
             {
                 PasswordTextBox.Text = "Hasło";
-                PasswordTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+                PasswordTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
             }
         }
     }
