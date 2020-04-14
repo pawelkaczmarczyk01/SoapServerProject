@@ -1,0 +1,87 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8080"
+           targetNamespace="http://localhost:8080" elementFormDefault="qualified">
+    <!-- hotels endpoints -->
+
+    <!-- add hotel request endpoints -->
+    <xs:element name="addHotelRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hotel" type="tns:hotelRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- update hotel request endpoints -->
+    <xs:element name="updateHotelRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="hotel" type="tns:hotelRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete hotel by id request endpoints -->
+    <xs:element name="deleteHotelByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get hotel by id request endpoints -->
+    <xs:element name="findHotelByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get hotel by id response endpoints -->
+    <xs:element name="findHotelByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hotel" type="tns:hotelResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all hotel request endpoints -->
+    <xs:element name="findAllHotelRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all hotel response endpoints -->
+    <xs:element name="findAllHotelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="hotelList" type="tns:hotelResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- hotel data request type -->
+    <xs:complexType name="hotelRequest">
+        <xs:sequence>
+            <xs:element name="hotelName" type="xs:string"/>
+            <xs:element name="hotelDescription" type="xs:string"/>
+            <xs:element name="hotelImagePath" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- hotel data response type -->
+    <xs:complexType name="hotelResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="hotelName" type="xs:string"/>
+            <xs:element name="hotelDescription" type="xs:string"/>
+            <xs:element name="hotelImagePath" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
