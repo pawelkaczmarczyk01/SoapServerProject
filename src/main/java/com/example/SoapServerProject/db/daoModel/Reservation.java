@@ -23,17 +23,17 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "accountId")
-    private Account account;
+    @JoinColumn(name = "userId")
+    private User user;
 
-    public Integer getAccountId() {
-        return account.getId();
+    public Integer getUserId() {
+        return user.getId();
     }
-    public void setAccountId(Integer accountId) {
-        this.account.setId(accountId);
+    public void setUserId(Integer userId) {
+        this.user.setId(userId);
     }
-    public Reservation withAccountId(Integer accountId) {
-        setAccountId(accountId);
+    public Reservation withUserId(Integer userId) {
+        setUserId(userId);
         return this;
     }
 
