@@ -3,7 +3,7 @@ package com.example.SoapServerProject.db.daoModel;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "hotels")
+@Table(name = "hotels", uniqueConstraints = @UniqueConstraint(columnNames = "hotelName"))
 public class Hotel {
 
     @Id
