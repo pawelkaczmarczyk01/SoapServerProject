@@ -1,18 +1,19 @@
 package com.example.SoapServerProject.web.service;
 
-import com.example.SoapServerProject.db.daoModel.Hotel;
-
-import java.util.List;
+import localhost._8080.FindAllHotelsResponse;
+import localhost._8080.FindHotelByIdResponse;
+import localhost._8080.HotelRequest;
+import localhost._8080.InfoResponse;
 
 public interface HotelService {
 
-    List<Hotel> findAll();
+    InfoResponse addHotel(HotelRequest hotelRequest);
 
-    Hotel findHotelById(String id);
+    InfoResponse updateHotel(int id, HotelRequest hotelRequest);
 
-    void addHotel(Hotel hotel);
+    InfoResponse deleteHotel(int id);
 
-    void deleteHotelById(String id);
+    FindHotelByIdResponse findHotelById(int id);
 
-    void updateHotel(Hotel hotel);
+    FindAllHotelsResponse findAll();
 }
