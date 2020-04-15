@@ -3,7 +3,7 @@ package com.example.SoapServerProject.db.daoModel;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "userLogin"))
 public class User {
 
     @Id
@@ -74,6 +74,16 @@ public class User {
     }
     public User withUserPassword(String userPassword) {
         setUserPassword(userPassword);
+        return this;
+    }
+
+    @Column
+    private boolean isAdmin;
+
+    public boolean getIsAdmin() { return isAdmin; }
+    public void setIsAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
+    public User withIsAdmin(boolean isAdmin) {
+        setIsAdmin(isAdmin);
         return this;
     }
 }
