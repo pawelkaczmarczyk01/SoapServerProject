@@ -1,7 +1,10 @@
 package com.example.SoapServerProject.web.serviceImpl;
 
+import com.example.SoapServerProject.db.dao.AssortmentDAO;
 import com.example.SoapServerProject.db.dao.HotelDAO;
+import com.example.SoapServerProject.db.dao.RoomDAO;
 import com.example.SoapServerProject.db.daoModel.Hotel;
+import com.example.SoapServerProject.db.daoModel.Room;
 import com.example.SoapServerProject.web.service.HotelService;
 import localhost._8080.*;
 import org.hibernate.service.spi.ServiceException;
@@ -11,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -18,6 +22,10 @@ public class HotelServiceImpl implements HotelService {
 
     @Autowired
     private HotelDAO hotelDAO;
+    @Autowired
+    private RoomDAO roomDAO;
+    @Autowired
+    private AssortmentDAO assortmentDAO;
 
     @Override
     public InfoResponse addHotel(HotelRequest hotelRequest) {
@@ -61,6 +69,14 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public InfoResponse deleteHotel(int id) {
         if (hotelDAO.findHotelById(id) != null) {
+            List<Room> roomListFromDb = roomDAO.findAll();
+            roomListFromDb = roomListFromDb.stream().filter(hotelId -> hotelId.getHotelId().getId().equals(id)).collect(Collectors.toList());
+
+            for (Room roomFromDb : roomListFromDb) {
+                assortmentDAO.deleteAssortmentById(roomFromDb.getAssortmentId().getId());
+                roomDAO.deleteRoomById(roomFromDb.getId());
+            }
+
             hotelDAO.deleteHotelById(id);
 
             return createInfoResponseMessage("Successfully deleted hotel");
