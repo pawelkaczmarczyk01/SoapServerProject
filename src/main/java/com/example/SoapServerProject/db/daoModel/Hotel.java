@@ -36,20 +36,6 @@ public class Hotel {
     }
 
     @Column
-    private String hotelDescription;
-
-    public String getHotelDescription() {
-        return hotelDescription;
-    }
-    public void setHotelDescription(String hotelDescription) {
-        this.hotelDescription = hotelDescription;
-    }
-    public Hotel withHotelDescription(String hotelDescription) {
-        setHotelDescription(hotelDescription);
-        return this;
-    }
-
-    @Column
     private String hotelImagePath;
 
     public String getHotelImagePath() {

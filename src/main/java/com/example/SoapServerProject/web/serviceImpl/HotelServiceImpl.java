@@ -25,7 +25,6 @@ public class HotelServiceImpl implements HotelService {
         if (hotelFromDb == null) {
             Hotel hotel = new Hotel()
                     .withHotelName(hotelRequest.getHotelName())
-                    .withHotelDescription(hotelRequest.getHotelDescription())
                     .withHotelImagePath(hotelRequest.getHotelImagePath());
             hotelDAO.save(hotel);
 
@@ -45,10 +44,7 @@ public class HotelServiceImpl implements HotelService {
                 if (!hotelRequest.getHotelName().isEmpty() && hotelRequest.getHotelName() != null) {
                     hotel.setHotelName(hotelRequest.getHotelName());
                 }
-                if (!hotelRequest.getHotelDescription().isEmpty() && hotelRequest.getHotelDescription() != null) {
-                    hotel.setHotelDescription(hotelRequest.getHotelDescription());
-                }
-                if (!hotelRequest.getHotelImagePath().isEmpty() && hotelRequest.getHotelDescription() != null) {
+                if (!hotelRequest.getHotelImagePath().isEmpty() && hotelRequest.getHotelImagePath() != null) {
                     hotel.setHotelImagePath(hotelRequest.getHotelImagePath());
                 }
                 hotelDAO.save(hotel);
@@ -81,7 +77,6 @@ public class HotelServiceImpl implements HotelService {
 
         hotelResponse.setId(hotel.getId());
         hotelResponse.setHotelName(hotel.getHotelName());
-        hotelResponse.setHotelDescription(hotel.getHotelDescription());
         hotelResponse.setHotelImagePath(hotel.getHotelImagePath());
 
         findHotelByIdResponse.setHotel(hotelResponse);
@@ -97,7 +92,6 @@ public class HotelServiceImpl implements HotelService {
             HotelResponse hotelResponse = new HotelResponse();
             hotelResponse.setId(hotelFromDb.getId());
             hotelResponse.setHotelName(hotelFromDb.getHotelName());
-            hotelResponse.setHotelDescription(hotelFromDb.getHotelDescription());
             hotelResponse.setHotelImagePath(hotelFromDb.getHotelImagePath());
             findAllHotelsResponse.getHotelList().add(hotelResponse);
         }
