@@ -23,30 +23,30 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "hotelId")
-    private Hotel hotel;
+    private Hotel hotelId;
 
-    public Integer getHotelId() {
-        return hotel.getId();
+    public Hotel getHotelId() {
+        return hotelId;
     }
-    public void setHotelId(Integer hotelId) {
-        this.hotel.setId(hotelId);
+    public void setHotelId(Hotel hotelId) {
+        this.hotelId = hotelId;
     }
-    public Room withHotelId(Integer hotelId) {
+    public Room withHotelId(Hotel hotelId) {
         setHotelId(hotelId);
         return this;
     }
 
     @ManyToOne
     @JoinColumn(name = "assortmentId")
-    private Assortment assortment;
+    private Assortment assortmentId;
 
-    public Integer getAssortmentId() {
-        return assortment.getId();
+    public Assortment getAssortmentId() {
+        return assortmentId;
     }
-    public void setAssortmentId(Integer assortmentId) {
-        this.assortment.setId(assortmentId);
+    public void setAssortmentId(Assortment assortmentId) {
+        this.assortmentId = assortmentId;
     }
-    public Room withAssortmentId(Integer assortmentId) {
+    public Room withAssortmentId(Assortment assortmentId) {
         setAssortmentId(assortmentId);
         return this;
     }

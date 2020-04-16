@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AssortmentDAO extends JpaRepository<Assortment, Integer> {
+
+    Assortment findAssortmentById(int id);
+
+    void deleteAssortmentById(int id);
 }

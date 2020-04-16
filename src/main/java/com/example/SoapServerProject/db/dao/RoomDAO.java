@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoomDAO extends JpaRepository<Room, Integer> {
+
+    Room findRoomById(int id);
+
+    void deleteRoomById(int id);
 }
