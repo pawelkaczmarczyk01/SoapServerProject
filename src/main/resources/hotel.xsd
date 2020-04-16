@@ -239,4 +239,123 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- ==================================== room endpoints method ==================================== -->
+
+    <!-- add room request endpoints  -->
+    <xs:element name="addRoomRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="room" type="tns:roomRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- update room request endpoints -->
+    <xs:element name="updateRoomRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="room" type="tns:roomRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete room by id request endpoints -->
+    <xs:element name="deleteRoomByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get room by id request endpoints -->
+    <xs:element name="findRoomByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get room by id response endpoints -->
+    <xs:element name="findRoomByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="room" type="tns:roomResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all room request endpoints -->
+    <xs:element name="findAllRoomsRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all room response endpoints -->
+    <xs:element name="findAllRoomsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="roomList" type="tns:roomResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all room by hotel id request endpoints -->
+    <xs:element name="findAllRoomsByHotelIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hotelId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all room by hotel id response endpoints -->
+    <xs:element name="findAllRoomsByHotelIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="roomList" type="tns:roomResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- room data request type -->
+    <xs:complexType name="roomRequest">
+        <xs:sequence>
+            <xs:element name="roomDescription" type="xs:string"/>
+            <xs:element name="roomImagePath" type="xs:string"/>
+            <xs:element name="roomName" type="xs:string"/>
+            <xs:element name="roomPrice" type="xs:double" nillable="true"/>
+            <xs:element name="roomQuantityOfPeople" type="xs:int" nillable="true"/>
+            <xs:element name="hotelId" type="xs:int"/>
+            <xs:element name="roomBathroom" type="xs:boolean" nillable="true"/>
+            <xs:element name="roomDesk" type="xs:boolean" nillable="true"/>
+            <xs:element name="roomFridge" type="xs:boolean" nillable="true"/>
+            <xs:element name="roomSafe" type="xs:boolean" nillable="true"/>
+            <xs:element name="roomTv" type="xs:boolean" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- room data response type -->
+    <xs:complexType name="roomResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="roomDescription" type="xs:string"/>
+            <xs:element name="roomImagePath" type="xs:string"/>
+            <xs:element name="roomName" type="xs:string"/>
+            <xs:element name="roomPrice" type="xs:double"/>
+            <xs:element name="roomQuantityOfPeople" type="xs:int"/>
+            <xs:element name="assortmentId" type="xs:int"/>
+            <xs:element name="hotelId" type="xs:int"/>
+            <xs:element name="roomBathroom" type="xs:boolean"/>
+            <xs:element name="roomDesk" type="xs:boolean"/>
+            <xs:element name="roomFridge" type="xs:boolean"/>
+            <xs:element name="roomSafe" type="xs:boolean"/>
+            <xs:element name="roomTv" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>

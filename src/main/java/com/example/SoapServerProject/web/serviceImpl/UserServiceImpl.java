@@ -38,9 +38,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public InfoResponse updateUser(int id, UserRequest userRequest) {
-        //TODO zmienić komunikat xD
         if (userRequest.getUserLogin().equals("admin")) {
-            throw new ServiceException("You can't modify a fucking administrator, you stupid bitch !!");
+            throw new ServiceException("You can't modify administrator");
         }
 
         User userFromDb = userDAO.findUserByUserLogin(userRequest.getUserLogin());
@@ -74,9 +73,8 @@ public class UserServiceImpl implements UserService {
     public InfoResponse deleteUser(int id) {
         if (userDAO.findUserById(id) != null) {
 
-            //TODO zmienić komunikat xD
             if (userDAO.findUserById(id).getUserLogin().equals("admin")) {
-                throw new ServiceException("You can't deleted a fucking administrator, you stupid bitch !!");
+                throw new ServiceException("You can't deleted administrator");
             }
 
             userDAO.deleteUserById(id);
@@ -107,7 +105,7 @@ public class UserServiceImpl implements UserService {
         List<User> userListFromDb = userDAO.findAll();
         FindAllUsersResponse findAllUsersResponse = new FindAllUsersResponse();
 
-        for(User userFromDb : userListFromDb) {
+        for (User userFromDb : userListFromDb) {
             UserResponse userResponse = new UserResponse();
             userResponse.setId(userFromDb.getId());
             userResponse.setUserName(userFromDb.getUserName());

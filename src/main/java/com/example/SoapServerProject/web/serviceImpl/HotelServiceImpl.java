@@ -88,7 +88,7 @@ public class HotelServiceImpl implements HotelService {
         List<Hotel> hotelListFromDb = hotelDAO.findAll();
         FindAllHotelsResponse findAllHotelsResponse = new FindAllHotelsResponse();
 
-        for(Hotel hotelFromDb : hotelListFromDb) {
+        for (Hotel hotelFromDb : hotelListFromDb) {
             HotelResponse hotelResponse = new HotelResponse();
             hotelResponse.setId(hotelFromDb.getId());
             hotelResponse.setHotelName(hotelFromDb.getHotelName());

@@ -21,21 +21,6 @@ public class Assortment {
         return this;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "roomId")
-    private Room room;
-
-    public Integer getRoomId() {
-        return room.getId();
-    }
-    public void setRoomId(Integer roomId) {
-        this.room.setId(roomId);
-    }
-    public Assortment withRoomId(Integer roomId) {
-        setRoomId(roomId);
-        return this;
-    }
-
     @Column
     private boolean roomTv;
 
