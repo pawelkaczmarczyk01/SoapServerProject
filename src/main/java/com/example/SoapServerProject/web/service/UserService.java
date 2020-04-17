@@ -1,17 +1,14 @@
 package com.example.SoapServerProject.web.service;
 
-import localhost._8080.FindAllUsersResponse;
-import localhost._8080.FindUserByIdResponse;
-import localhost._8080.InfoResponse;
-import localhost._8080.UserRequest;
+import localhost._8080.*;
 
 public interface UserService {
 
-    InfoResponse addUser(UserRequest userRequest);
+    AddUserResponse addUser(UserRequest userRequest);
 
-    InfoResponse updateUser(int id, UserRequest userRequest);
+    UpdateUserResponse updateUser(int id, UserRequest userRequest);
 
-    InfoResponse deleteUser(int id);
+    DeleteUserByIdResponse deleteUser(int id);
 
     FindUserByIdResponse findUserById(int id);
 

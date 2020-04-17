@@ -18,19 +18,19 @@ public class UserEndpoints {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addUserRequest")
     @ResponsePayload
-    public InfoResponse addUser(@RequestPayload AddUserRequest addUserRequest) {
+    public AddUserResponse addUser(@RequestPayload AddUserRequest addUserRequest) {
         return userService.addUser(addUserRequest.getUser());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateUserRequest")
     @ResponsePayload
-    public InfoResponse updateUser(@RequestPayload UpdateUserRequest updateUserRequest) {
+    public UpdateUserResponse updateUser(@RequestPayload UpdateUserRequest updateUserRequest) {
         return userService.updateUser(updateUserRequest.getId(), updateUserRequest.getUser());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteUserByIdRequest")
     @ResponsePayload
-    public InfoResponse deleteUser(@RequestPayload DeleteUserByIdRequest deleteUserByIdRequest) {
+    public DeleteUserByIdResponse deleteUser(@RequestPayload DeleteUserByIdRequest deleteUserByIdRequest) {
         return userService.deleteUser(deleteUserByIdRequest.getId());
     }
 
