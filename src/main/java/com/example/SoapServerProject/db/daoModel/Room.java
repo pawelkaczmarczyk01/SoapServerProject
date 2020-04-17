@@ -65,7 +65,7 @@ public class Room {
         return this;
     }
 
-    @Column
+    @Column(length = 600)
     private String roomDescription;
 
     public String getRoomDescription() {
