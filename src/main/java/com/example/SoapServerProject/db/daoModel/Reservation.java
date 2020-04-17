@@ -24,30 +24,30 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User user;
+    private User userId;
 
-    public Integer getUserId() {
-        return user.getId();
+    public User getUserId() {
+        return userId;
     }
-    public void setUserId(Integer userId) {
-        this.user.setId(userId);
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
-    public Reservation withUserId(Integer userId) {
+    public Reservation withUserId(User userId) {
         setUserId(userId);
         return this;
     }
 
     @ManyToOne
     @JoinColumn(name = "roomId")
-    private Room room;
+    private Room roomId;
 
-    public Integer getRoomId() {
-        return room.getId();
+    public Room getRoomId() {
+        return roomId;
     }
-    public void setRoomId(Integer roomId) {
-        this.room.setId(roomId);
+    public void setRoomId(Room roomId) {
+        this.roomId = roomId;
     }
-    public Reservation withRoomId(Integer roomId) {
+    public Reservation withRoomId(Room roomId) {
         setRoomId(roomId);
         return this;
     }

@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReservationDAO extends JpaRepository<Reservation, Integer> {
+    Reservation findReservationById(int id);
+
+    void deleteReservationById(int id);
 }

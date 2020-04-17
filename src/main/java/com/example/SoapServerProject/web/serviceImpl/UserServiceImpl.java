@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
     @Override
-    public InfoResponse addUser(UserRequest userRequest) {
+    public AddUserResponse addUser(UserRequest userRequest) {
         User userFromDb = userDAO.findUserByUserLogin(userRequest.getUserLogin());
         if (userFromDb == null) {
             User user = new User()
@@ -30,14 +30,14 @@ public class UserServiceImpl implements UserService {
                     .withIsAdmin(Boolean.FALSE);
             userDAO.save(user);
 
-            return createInfoResponseMessage("Successfully added user");
+            return createAddUserResponseMessage("Successfully added user");
         } else {
             throw new ServiceException("Login must be unique");
         }
     }
 
     @Override
-    public InfoResponse updateUser(int id, UserRequest userRequest) {
+    public UpdateUserResponse updateUser(int id, UserRequest userRequest) {
         if (userRequest.getUserLogin().equals("admin")) {
             throw new ServiceException("You can't modify administrator");
         }
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
                 }
                 userDAO.save(user);
 
-                return createInfoResponseMessage("Successfully updated user");
+                return createUpdateUserResponseMessage("Successfully updated user");
             } else {
                 throw new ServiceException("User with given id is not existed");
             }
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public InfoResponse deleteUser(int id) {
+    public DeleteUserByIdResponse deleteUser(int id) {
         if (userDAO.findUserById(id) != null) {
 
             if (userDAO.findUserById(id).getUserLogin().equals("admin")) {
@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
 
             userDAO.deleteUserById(id);
 
-            return createInfoResponseMessage("Successfully deleted user");
+            return createDeleteUserByIdResponseMessage("Successfully deleted user");
         } else {
             throw new ServiceException("User with given id is not existed");
         }
@@ -117,9 +117,21 @@ public class UserServiceImpl implements UserService {
         return findAllUsersResponse;
     }
 
-    public InfoResponse createInfoResponseMessage(String message) {
-        InfoResponse infoResponse = new InfoResponse();
-        infoResponse.setInfo(message);
-        return infoResponse;
+    public AddUserResponse createAddUserResponseMessage(String message) {
+        AddUserResponse addUserResponse = new AddUserResponse();
+        addUserResponse.setInfo(message);
+        return addUserResponse;
+    }
+
+    public UpdateUserResponse createUpdateUserResponseMessage(String message) {
+        UpdateUserResponse updateUserResponse = new UpdateUserResponse();
+        updateUserResponse.setInfo(message);
+        return updateUserResponse;
+    }
+
+    public DeleteUserByIdResponse createDeleteUserByIdResponseMessage(String message) {
+        DeleteUserByIdResponse deleteUserByIdResponse = new DeleteUserByIdResponse();
+        deleteUserByIdResponse.setInfo(message);
+        return deleteUserByIdResponse;
     }
 }
