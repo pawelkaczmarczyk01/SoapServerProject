@@ -385,4 +385,110 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- ==================================== reservation endpoints method ==================================== -->
+
+    <!-- add reservation request endpoints  -->
+    <xs:element name="addReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reservation" type="tns:reservationRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- update reservation request endpoints -->
+    <xs:element name="updateReservationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:int"/>
+                <xs:element name="reservation" type="tns:reservationRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete reservation by id request endpoints -->
+    <xs:element name="deleteReservationByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:int"/>
+                <xs:element name="reservationId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get reservation by id request endpoints -->
+    <xs:element name="findReservationByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:int"/>
+                <xs:element name="reservationId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get reservation by id response endpoints -->
+    <xs:element name="findReservationByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="room" type="tns:roomResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all reservation request endpoints -->
+    <xs:element name="findAllReservationsRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all reservation response endpoints -->
+    <xs:element name="findAllReservationsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="reservationList" type="tns:reservationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all reservation by user id request endpoints -->
+    <xs:element name="findAllReservationsByUserIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- get all reservation by user id response endpoints -->
+    <xs:element name="findAllReservationsByUserIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="reservationList" type="tns:reservationResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- reservation request endpoints -->
+    <xs:complexType name="reservationRequest">
+        <xs:sequence>
+            <xs:element name="roomId" type="xs:int"/>
+            <xs:element name="userId" type="xs:int"/>
+            <xs:element name="roomReservationFrom" type="xs:date"/>
+            <xs:element name="roomReservationTo" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- reservation data request type -->
+    <xs:complexType name="reservationResponse">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="roomId" type="xs:int"/>
+            <xs:element name="userId" type="xs:int"/>
+            <xs:element name="roomReservationFrom" type="xs:date"/>
+            <xs:element name="roomReservationTo" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
 </xs:schema>
