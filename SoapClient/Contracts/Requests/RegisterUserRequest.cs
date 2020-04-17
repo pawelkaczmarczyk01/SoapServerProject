@@ -4,24 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contracts.Models
+namespace Contracts.Requests
 {
-    public class Account
+    public class RegisterUserRequest
     {
         public string Login { get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public bool IsAdmin { get; set; }
 
-        public Account(string login, 
+        public RegisterUserRequest(
+            string login,
+            string password,
             string name,
-            string lastName,
-            bool isAdmin)
+            string lastName)
         {
             Login = login;
+            Password = password;
             Name = name;
             LastName = lastName;
-            IsAdmin = isAdmin;
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Contracts.Models;
+using Contracts.Requests;
+using SoapClient.HotelSoap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,21 +61,42 @@ namespace SoapClient.Windows.Authorization
             {
                 MessageBox.Show("Nazwisko musi mieć przynajmniej 3 znaki.", "Błędne nazwisko", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (EmailTextBox.Text.Equals("Email"))
-            {
-                MessageBox.Show("Podaj email", "Błędny email", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            //else if (!accountRepository.IsEmailCorrect(EmailTextBox.Text))
-            //{
-            //    MessageBox.Show("Email jest zajęty lub niepoprawny.", "Błędny email", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
             else
             {
-                var account = new Account(LoginTextBox.Text, PasswordTextBoxP.Password, EmailTextBox.Text, NameTextBox.Text, SurnameTextBox.Text, false);
-                MessageBox.Show("Konto założono poprawnie.", "Rejestracja zakończona", MessageBoxButton.OK);
-                var window = new LogIn();
-                Close();
-                window.Show();
+                var registerUserRequest = new RegisterUserRequest(LoginTextBox.Text, PasswordTextBoxP.Password, NameTextBox.Text, SurnameTextBox.Text);
+
+                try
+                {
+                    RegisterUser(registerUserRequest);
+                    MessageBox.Show("Konto założono poprawnie.", "Rejestracja zakończona", MessageBoxButton.OK);
+                    var window = new LogIn();
+                    Close();
+                    window.Show();
+                }
+                catch (Exception ex)
+                {
+
+                }      
+            }
+        }
+
+        private void RegisterUser(RegisterUserRequest registerUserRequest)
+        {
+            var client = new HotelsPortClient();
+            var request = new addUserRequest();
+            var userRequest = new userRequest();
+            userRequest.userLogin = registerUserRequest.Login;
+            userRequest.userPassword = registerUserRequest.Password;
+            userRequest.userName = registerUserRequest.Name;
+            userRequest.userLastName = registerUserRequest.LastName;
+            request.user = userRequest;
+            try
+            {
+                client.addUser(request);           
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Błąd podczas rejestracji", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -164,24 +187,6 @@ namespace SoapClient.Windows.Authorization
             {
                 SurnameTextBox.Text = "Nazwisko";
                 SurnameTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
-            }
-        }
-
-        private void EmailEnter(object sender, EventArgs e)
-        {
-            if (EmailTextBox.Text == "Email")
-            {
-                EmailTextBox.Text = "";
-                EmailTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-            }
-        }
-
-        private void EmailLeave(object sender, EventArgs e)
-        {
-            if (EmailTextBox.Text == "" || SurnameTextBox.Text == null)
-            {
-                EmailTextBox.Text = "Email";
-                EmailTextBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
             }
         }
     }

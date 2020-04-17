@@ -8,17 +8,29 @@ using System.Windows.Media.Imaging;
 
 namespace Contracts.ViewModels.HotelsListModels
 {
-    public class Hotel
+    public class Room
     {
-        public int Id { get; set; }
+        public int RoomId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public string ShortDescription { get; set; }
         public BitmapImage Image { get; set; }
+        public string PriceToShow { get; set; }
+        public double Price { get; set; }
+        public int HotelId { get; set; }
 
-        public Hotel(int id, string name, byte[] imageData)
+        public Room(int roomId, string name, string description, byte[] imageData, double price)
         {
-            Id = id;
+            RoomId = roomId;
             Name = name;
+            Description = description;
+            if (description.Length > 635)
+            {
+                ShortDescription = description.Substring(0, 635) + "...";
+            }
             Image = LoadImage(imageData);
+            PriceToShow = "Koszt za dobę: " + price.ToString() + " zł";
+            Price = price;
         }
 
         private BitmapImage LoadImage(byte[] imageData)
@@ -46,5 +58,4 @@ namespace Contracts.ViewModels.HotelsListModels
             return image;
         }
     }
-
 }

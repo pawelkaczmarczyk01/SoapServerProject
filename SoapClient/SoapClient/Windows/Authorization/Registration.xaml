@@ -19,7 +19,7 @@
         <PasswordBox Name="RepeatPasswordTextBoxP" GotFocus="RepeatPasswordEnter" LostFocus="RepeatPasswordLeave" FontSize="20" Foreground="Black" Height="35" Margin="68,168,32,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
         <TextBox Name="NameTextBox" GotFocus="NameEnter" LostFocus="NameLeave" Foreground="Silver" Height="35" Margin="0,44,70,0" FontSize="20" TextWrapping="Wrap" Text="Imię" TextAlignment="Center" VerticalAlignment="Top" Grid.Column="2"/>
         <TextBox Name="SurnameTextBox" GotFocus="SurnameEnter" LostFocus="SurnameLeave" Foreground="Silver" Height="35" Margin="0,104,70,0" FontSize="20" TextWrapping="Wrap" Text="Nazwisko" TextAlignment="Center" VerticalAlignment="Top" Grid.Column="2"/>
-        <TextBox Name="EmailTextBox" GotFocus="EmailEnter" LostFocus="EmailLeave" FontSize="20" Foreground="Silver" Height="35" Margin="0,168,70,0" TextWrapping="Wrap" Text="Email" TextAlignment="Center" VerticalAlignment="Top" Grid.Column="2"/>
+        <!--<TextBox Name="EmailTextBox" GotFocus="EmailEnter" LostFocus="EmailLeave" FontSize="20" Foreground="Silver" Height="35" Margin="0,168,70,0" TextWrapping="Wrap" Text="Email" TextAlignment="Center" VerticalAlignment="Top" Grid.Column="2"/>-->
         <Button Height="72" Margin="0,289,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="148" Click="FinishRegistration">
             <TextBox Text="Zakończ rejestrację" FontSize="20" TextWrapping="Wrap" TextAlignment="Center" BorderBrush="#00000000" PreviewMouseDown="FinishRegistration"/>
         </Button>

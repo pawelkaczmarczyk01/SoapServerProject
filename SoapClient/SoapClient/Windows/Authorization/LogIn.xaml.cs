@@ -1,6 +1,10 @@
 ﻿using Contracts.Models;
+using Contracts.Responses;
+using Contracts.ViewModels.HotelsListModels;
+using SoapClient.HotelSoap;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,15 +40,16 @@ namespace SoapClient.Windows.Authorization
                 PasswordTextBoxP.Password.Equals("Hasło") ||
                 PasswordTextBoxP.Password == null)
             {
-                MessageBox.Show("Błędny login lub hasło.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);          
+                MessageBox.Show("Błędny login lub hasło.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             else
             {
-                var account = new Account(LoginTextBox.Text, PasswordTextBoxP.Password, "", "", "", false);
-                if (account != null)
+                var user = GetUserByLoginAndPassword(LoginTextBox.Text, PasswordTextBoxP.Password);
+
+                if (user != null)
                 {
-                    if (account.IsAdmin)
+                    if (user.IsAdmin)
                     {
                         var window = new MainWindow();
                         Close();
@@ -52,15 +57,76 @@ namespace SoapClient.Windows.Authorization
                     }
                     else
                     {
-                        var window = new HotelsList(account);
-                        Close();
-                        window.Show();
+                        try
+                        {
+                            Application.Current.Resources["user"] = user;
+                            var list = PrepareHotelsList();
+                            var window = new HotelsList(list);
+                            Close();
+                            window.Show();
+                        }
+                        catch (Exception)
+                        {
+
+                        }
                     }
                 }
-                else
+            }
+        }
+
+        private Account GetUserByLoginAndPassword(string login, string password)
+        {
+            var client = new HotelsPortClient();
+            var request = new loginRequest();
+            request.login = login;
+            request.password = password;
+
+            try
+            {
+                var response = client.login(request);
+                var user = new Account(login, response.user.userName, response.user.userLastName, response.isAdmin);
+                return user;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
+
+        private byte[] ImageConversion(string imageName)
+        {
+
+            FileStream fs = new FileStream(imageName, FileMode.Open, FileAccess.Read);
+            byte[] imgByteArr = new byte[fs.Length];
+            fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+
+            return imgByteArr;
+        }
+
+        private List<Hotel> PrepareHotelsList()
+        {
+            try
+            {
+                var client = new HotelsPortClient();
+                var request = new findAllHotelsRequest();
+                var response = client.findAllHotels(request);
+
+
+                var list = new List<Hotel>();
+                foreach (var item in response)
                 {
-                    MessageBox.Show("Błędny login lub hasło.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var hotel = new Hotel(item.id, item.hotelName, ImageConversion(item.hotelImagePath));
+                    list.Add(hotel);
                 }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd", e.Data.ToString(), MessageBoxButton.OK);
+                return new List<Hotel>();
             }
         }
 

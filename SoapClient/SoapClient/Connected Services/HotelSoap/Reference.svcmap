@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a9cdba97-8f01-4708-bf7b-04fd7e539541" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d87395e-a57c-4302-a3cd-025eef556137" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/soap/hotelReservation.wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/soap/hotel.wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="hotelReservation.wsdl" MetadataType="Wsdl" ID="5d32ff60-266e-4c19-aded-c055f1b6abbd" SourceId="1" SourceUrl="http://localhost:8080/soap/hotelReservation.wsdl" />
+    <MetadataFile FileName="hotel.wsdl" MetadataType="Wsdl" ID="4d1a5756-23ac-4b5a-8df2-c4fbdb4ff0c2" SourceId="1" SourceUrl="http://localhost:8080/soap/hotel.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
