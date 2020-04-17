@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +28,7 @@ public class ReservationServiceImpl implements ReservationService {
     private RoomDAO roomDAO;
 
     @Override
-    public InfoResponse addReservation(ReservationRequest reservationRequest) {
+    public AddReservationResponse addReservation(ReservationRequest reservationRequest) {
         Room room = roomDAO.findRoomById(reservationRequest.getRoomId());
 
         if (room != null) {
@@ -35,10 +38,10 @@ public class ReservationServiceImpl implements ReservationService {
                     .withReservationFrom(reservationRequest.getRoomReservationFrom().toGregorianCalendar().getTime())
                     .withReservationTo(reservationRequest.getRoomReservationTo().toGregorianCalendar().getTime());
             if (reservation.getReservationFrom().getTime() > reservation.getRoomReservationTo().getTime()) {
-                return createInfoResponseMessage("Date from can't be lover than date to");
+                return createAddReservationResponseMessage("Date from can't be lover than date to");
             }
             if (reservation.getReservationFrom().getTime() == reservation.getRoomReservationTo().getTime()) {
-                return createInfoResponseMessage("Date from can't be equals date to");
+                return createAddReservationResponseMessage("Date from can't be equals date to");
             }
 
             List<Reservation> reservationList = reservationDAO.findAll();
@@ -50,44 +53,92 @@ public class ReservationServiceImpl implements ReservationService {
                 } else if (reservation.getReservationFrom().getTime() >= reservationFromDb.getRoomReservationTo().getTime() && reservation.getRoomReservationTo().getTime() >= reservationFromDb.getRoomReservationTo().getTime()) {
                     System.out.println("git_1");
                 } else {
-                    return createInfoResponseMessage("This Room is reserved in this time");
+                    return createAddReservationResponseMessage("This Room is reserved in this time");
                 }
             }
             reservationDAO.save(reservation);
-            return createInfoResponseMessage("Successfully added reservation");
+            return createAddReservationResponseMessage("Successfully added reservation");
         } else {
             throw new ServiceException("This Room is not existed");
         }
     }
 
     @Override
-    public InfoResponse updateReservation(int id, ReservationRequest reservationRequest) {
-        return null;
+    public DeleteReservationByIdResponse deleteReservation(int userId, int reservationId) {
+        Reservation reservation = reservationDAO.findReservationById(reservationId);
+        if (reservation != null) {
+            if (reservation.getUserId().getId() == userId) {
+                reservationDAO.deleteReservationById(reservationId);
+                return createDeleteReservationByIdResponseMessage("Successfully deleted hotel");
+            } else {
+                throw new ServiceException("Access denied !!");
+            }
+        } else {
+            throw new ServiceException("Reservation with given id is not existed");
+        }
     }
 
     @Override
-    public InfoResponse deleteReservation(int userId, int reservationId) {
-        return null;
+    public FindReservationByIdResponse findReservationById(int userId, int reservationId) throws DatatypeConfigurationException {
+        Reservation reservation = reservationDAO.findReservationById(reservationId);
+        if (reservation.getUserId().getId().equals(userId)) {
+            FindReservationByIdResponse findReservationByIdResponse = new FindReservationByIdResponse();
+            ReservationResponse reservationResponse = getReservationResponse(reservation);
+            findReservationByIdResponse.setReservation(reservationResponse);
+            return findReservationByIdResponse;
+        } else {
+            throw new ServiceException("Access denied !!");
+        }
     }
 
     @Override
-    public FindReservationByIdResponse findReservationById(int userId, int reservationId) {
-        return null;
+    public FindAllReservationsResponse findAll() throws DatatypeConfigurationException {
+        List<Reservation> reservationListFromDb = reservationDAO.findAll();
+        FindAllReservationsResponse findAllReservationsResponse = new FindAllReservationsResponse();
+
+        for (Reservation reservationFromDb : reservationListFromDb) {
+            findAllReservationsResponse.getReservationList().add(getReservationResponse(reservationFromDb));
+        }
+        return findAllReservationsResponse;
     }
 
     @Override
-    public FindAllReservationsResponse findAll() {
-        return null;
+    public FindAllReservationsByUserIdResponse findAllReservationByUserId(int userId) throws DatatypeConfigurationException {
+        List<Reservation> reservationListFromDb = reservationDAO.findAll();
+        reservationListFromDb = reservationListFromDb.stream().filter(reservation -> reservation.getUserId().getId().equals(userId)).collect(Collectors.toList());
+
+        FindAllReservationsByUserIdResponse findAllReservationsByUserIdResponse = new FindAllReservationsByUserIdResponse();
+
+        for (Reservation reservationFromDb : reservationListFromDb) {
+            findAllReservationsByUserIdResponse.getReservationList().add(getReservationResponse(reservationFromDb));
+        }
+        return findAllReservationsByUserIdResponse;
     }
 
-    @Override
-    public FindAllReservationsByUserIdResponse findAllReservationByUserId(int userId) {
-        return null;
+    private ReservationResponse getReservationResponse(Reservation reservationFromDb) throws DatatypeConfigurationException {
+        ReservationResponse reservationResponse = new ReservationResponse();
+
+        GregorianCalendar gregorianCalendarFrom = new GregorianCalendar();
+        GregorianCalendar gregorianCalendarTo = new GregorianCalendar();
+        gregorianCalendarFrom.setTime(reservationFromDb.getReservationFrom());
+        gregorianCalendarTo.setTime(reservationFromDb.getRoomReservationTo());
+
+        reservationResponse.setRoomId(new Room().withId(reservationFromDb.getRoomId().getId()).getId());
+        reservationResponse.setUserId(new User().withId(reservationFromDb.getUserId().getId()).getId());
+        reservationResponse.setRoomReservationFrom(DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendarFrom));
+        reservationResponse.setRoomReservationTo(DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendarTo));
+        return reservationResponse;
     }
 
-    public InfoResponse createInfoResponseMessage(String message) {
-        InfoResponse infoResponse = new InfoResponse();
-        infoResponse.setInfo(message);
-        return infoResponse;
+    public AddReservationResponse createAddReservationResponseMessage(String message) {
+        AddReservationResponse addReservationResponse = new AddReservationResponse();
+        addReservationResponse.setInfo(message);
+        return addReservationResponse;
+    }
+
+    public DeleteReservationByIdResponse createDeleteReservationByIdResponseMessage(String message) {
+        DeleteReservationByIdResponse deleteReservationByIdResponse = new DeleteReservationByIdResponse();
+        deleteReservationByIdResponse.setInfo(message);
+        return deleteReservationByIdResponse;
     }
 }

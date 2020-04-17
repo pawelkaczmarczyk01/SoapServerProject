@@ -18,19 +18,19 @@ public class RoomEndpoints {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addRoomRequest")
     @ResponsePayload
-    public InfoResponse addRoom(@RequestPayload AddRoomRequest addRoomRequest) {
+    public AddRoomResponse addRoom(@RequestPayload AddRoomRequest addRoomRequest) {
         return roomService.addRoom(addRoomRequest.getRoom());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateRoomRequest")
     @ResponsePayload
-    public InfoResponse updateRoom(@RequestPayload UpdateRoomRequest updateRoomRequest) {
+    public UpdateRoomResponse updateRoom(@RequestPayload UpdateRoomRequest updateRoomRequest) {
         return roomService.updateRoom(updateRoomRequest.getId(), updateRoomRequest.getRoom());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteRoomByIdRequest")
     @ResponsePayload
-    public InfoResponse deleteRoom(@RequestPayload DeleteRoomByIdRequest deleteRoomByIdRequest) {
+    public DeleteRoomByIdResponse deleteRoom(@RequestPayload DeleteRoomByIdRequest deleteRoomByIdRequest) {
         return roomService.deleteRoom(deleteRoomByIdRequest.getId());
     }
 

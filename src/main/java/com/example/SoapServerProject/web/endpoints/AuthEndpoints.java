@@ -24,13 +24,13 @@ public class AuthEndpoints {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "registerRequest")
     @ResponsePayload
-    public InfoResponse register(@RequestPayload RegisterRequest registerRequest) {
+    public RegisterResponse register(@RequestPayload RegisterRequest registerRequest) {
         return authService.register(registerRequest);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "changePasswordRequest")
     @ResponsePayload
-    public InfoResponse changePassword(@RequestPayload ChangePasswordRequest changePasswordRequest) {
+    public ChangePasswordResponse changePassword(@RequestPayload ChangePasswordRequest changePasswordRequest) {
         return authService.changePassword(changePasswordRequest.getUserId(),
                 changePasswordRequest.getOldPassword(),
                 changePasswordRequest.getNewPassword(),

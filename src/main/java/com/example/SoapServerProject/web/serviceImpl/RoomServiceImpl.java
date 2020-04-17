@@ -28,7 +28,7 @@ public class RoomServiceImpl implements RoomService {
     private AssortmentDAO assortmentDAO;
 
     @Override
-    public InfoResponse addRoom(RoomRequest roomRequest) {
+    public AddRoomResponse addRoom(RoomRequest roomRequest) {
         if (hotelDAO.findHotelById(roomRequest.getHotelId()) == null) {
             throw new ServiceException("Hotel with given id doesn't exist");
         }
@@ -51,14 +51,14 @@ public class RoomServiceImpl implements RoomService {
                     .withRoomImagePath(roomRequest.getRoomImagePath());
 
             roomDAO.save(room);
-            return createInfoResponseMessage("Successfully added room with assortment");
+            return createAddRoomResponseMessage("Successfully added room with assortment");
         } catch (Exception e) {
             throw new ServiceException(e.getMessage(), e.getCause());
         }
     }
 
     @Override
-    public InfoResponse updateRoom(int id, RoomRequest roomRequest) {
+    public UpdateRoomResponse updateRoom(int id, RoomRequest roomRequest) {
         if (hotelDAO.findHotelById(roomRequest.getHotelId()) == null) {
             throw new ServiceException("Hotel with given id doesn't exist");
         }
@@ -100,7 +100,7 @@ public class RoomServiceImpl implements RoomService {
                 assortmentDAO.save(assortmentFromDb);
                 roomDAO.save(roomFromDb);
 
-                return createInfoResponseMessage("Successfully updated room with assortment");
+                return createUpdateRoomResponseMessage("Successfully updated room with assortment");
             } else {
                 throw new ServiceException("Room with given id is not existed");
             }
@@ -110,12 +110,12 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public InfoResponse deleteRoom(int id) {
+    public DeleteRoomByIdResponse deleteRoom(int id) {
         Room roomFromDb = roomDAO.findRoomById(id);
         if (roomFromDb != null) {
             assortmentDAO.deleteAssortmentById(roomFromDb.getAssortmentId().getId());
             roomDAO.deleteRoomById(id);
-            return createInfoResponseMessage("Successfully deleted room");
+            return createDeleteRoomByIdResponseMessage("Successfully deleted room");
         } else {
             throw new ServiceException("Room with given id is not existed");
         }
@@ -189,9 +189,21 @@ public class RoomServiceImpl implements RoomService {
         return roomResponse;
     }
 
-    public InfoResponse createInfoResponseMessage(String message) {
-        InfoResponse infoResponse = new InfoResponse();
-        infoResponse.setInfo(message);
-        return infoResponse;
+    public AddRoomResponse createAddRoomResponseMessage(String message) {
+        AddRoomResponse addRoomResponse = new AddRoomResponse();
+        addRoomResponse.setInfo(message);
+        return addRoomResponse;
+    }
+
+    public UpdateRoomResponse createUpdateRoomResponseMessage(String message) {
+        UpdateRoomResponse updateRoomResponse = new UpdateRoomResponse();
+        updateRoomResponse.setInfo(message);
+        return updateRoomResponse;
+    }
+
+    public DeleteRoomByIdResponse createDeleteRoomByIdResponseMessage(String message) {
+        DeleteRoomByIdResponse deleteRoomByIdResponse = new DeleteRoomByIdResponse();
+        deleteRoomByIdResponse.setInfo(message);
+        return deleteRoomByIdResponse;
     }
 }

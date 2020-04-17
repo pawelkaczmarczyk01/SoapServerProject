@@ -1,23 +1,6 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8080"
            targetNamespace="http://localhost:8080" elementFormDefault="qualified">
 
-    <!-- ==================================== basic method ==================================== -->
-
-    <xs:element name="infoRequest">
-        <xs:complexType>
-            <xs:sequence>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="infoResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="info" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
     <!-- ==================================== hotel endpoints method ==================================== -->
 
     <!-- add hotel request endpoints  -->
@@ -25,6 +8,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hotel" type="tns:hotelRequest"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- add hotel response endpoints -->
+    <xs:element name="addHotelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -39,11 +31,29 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- update hotel response endpoints -->
+    <xs:element name="updateHotelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- delete hotel by id request endpoints -->
     <xs:element name="deleteHotelByIdRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete hotel by id response endpoints -->
+    <xs:element name="deleteHotelByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -243,6 +253,15 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- register response endpoints -->
+    <xs:element name="registerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- change password request endpoints -->
     <xs:element name="changePasswordRequest">
         <xs:complexType>
@@ -251,6 +270,15 @@
                 <xs:element name="oldPassword" type="xs:string"/>
                 <xs:element name="newPassword" type="xs:string"/>
                 <xs:element name="confirmPassword" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- change password response endpoints -->
+    <xs:element name="changePasswordResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -277,6 +305,15 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- add room response endpoints -->
+    <xs:element name="addRoomResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- update room request endpoints -->
     <xs:element name="updateRoomRequest">
         <xs:complexType>
@@ -287,11 +324,29 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- update room response endpoints -->
+    <xs:element name="updateRoomResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <!-- delete room by id request endpoints -->
     <xs:element name="deleteRoomByIdRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete room by id response endpoints -->
+    <xs:element name="deleteRoomByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -396,12 +451,11 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- update reservation request endpoints -->
-    <xs:element name="updateReservationRequest">
+    <!-- add reservation response endpoints -->
+    <xs:element name="addReservationResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="userId" type="xs:int"/>
-                <xs:element name="reservation" type="tns:reservationRequest"/>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -412,6 +466,15 @@
             <xs:sequence>
                 <xs:element name="userId" type="xs:int"/>
                 <xs:element name="reservationId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- delete reservation by id response endpoints -->
+    <xs:element name="deleteReservationByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -430,7 +493,7 @@
     <xs:element name="findReservationByIdResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="room" type="tns:roomResponse"/>
+                <xs:element name="reservation" type="tns:reservationResponse"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

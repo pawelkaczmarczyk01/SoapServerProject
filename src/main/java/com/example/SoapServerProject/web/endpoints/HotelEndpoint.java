@@ -18,19 +18,19 @@ public class HotelEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addHotelRequest")
     @ResponsePayload
-    public InfoResponse addHotel(@RequestPayload AddHotelRequest addHotelRequest) {
+    public AddHotelResponse addHotel(@RequestPayload AddHotelRequest addHotelRequest) {
         return hotelService.addHotel(addHotelRequest.getHotel());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateHotelRequest")
     @ResponsePayload
-    public InfoResponse updateHotel(@RequestPayload UpdateHotelRequest updateHotelRequest) {
+    public UpdateHotelResponse updateHotel(@RequestPayload UpdateHotelRequest updateHotelRequest) {
         return hotelService.updateHotel(updateHotelRequest.getId(), updateHotelRequest.getHotel());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteHotelByIdRequest")
     @ResponsePayload
-    public InfoResponse deleteHotel(@RequestPayload DeleteHotelByIdRequest deleteHotelByIdRequest) {
+    public DeleteHotelByIdResponse deleteHotel(@RequestPayload DeleteHotelByIdRequest deleteHotelByIdRequest) {
         return hotelService.deleteHotel(deleteHotelByIdRequest.getId());
     }
 
