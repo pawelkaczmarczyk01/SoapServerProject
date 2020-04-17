@@ -40,7 +40,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public InfoResponse register(RegisterRequest registerRequest) {
+    public RegisterResponse register(RegisterRequest registerRequest) {
         User userFromDao = userDAO.findUserByUserLogin(registerRequest.getUser().getUserLogin());
         if (userFromDao == null) {
             if (registerRequest.getUser().getUserPassword().equals(registerRequest.getUser().getUserConfirmPassword())) {
@@ -51,38 +51,44 @@ public class AuthServiceImpl implements AuthService {
                         .withUserLogin(registerRequest.getUser().getUserLogin())
                         .withUserPassword(registerRequest.getUser().getUserPassword());
                 userDAO.save(user);
-                return createInfoResponseMessage("User has been registered");
+                return createRegisterResponseMessage("User has been registered");
             } else {
-                return createInfoResponseMessage("Passwords is different");
+                return createRegisterResponseMessage("Passwords is different");
             }
         } else {
-            return createInfoResponseMessage("User login already exist");
+            return createRegisterResponseMessage("User login already exist");
         }
     }
 
     @Override
-    public InfoResponse changePassword(int userId, String oldPassword, String newPassword, String confirmPassword) {
+    public ChangePasswordResponse changePassword(int userId, String oldPassword, String newPassword, String confirmPassword) {
         User userFromDb = userDAO.findUserById(userId);
         if (newPassword.equals(confirmPassword)) {
             if (userFromDb.getUserPassword().equals(oldPassword)) {
                 if (!userFromDb.getUserPassword().equals(newPassword)) {
                     userFromDb.setUserPassword(newPassword);
                     userDAO.save(userFromDb);
-                    return createInfoResponseMessage("Password has been changed");
+                    return createChangePasswordResponseMessage("Password has been changed");
                 } else {
-                    return createInfoResponseMessage("New password can't be the same like old password");
+                    return createChangePasswordResponseMessage("New password can't be the same like old password");
                 }
             } else {
-                return createInfoResponseMessage("Old password is wrong");
+                return createChangePasswordResponseMessage("Old password is wrong");
             }
         } else {
-            return createInfoResponseMessage("New passwords is different");
+            return createChangePasswordResponseMessage("New passwords is different");
         }
     }
 
-    public InfoResponse createInfoResponseMessage(String message) {
-        InfoResponse infoResponse = new InfoResponse();
-        infoResponse.setInfo(message);
-        return infoResponse;
+    public RegisterResponse createRegisterResponseMessage(String message) {
+        RegisterResponse registerResponse = new RegisterResponse();
+        registerResponse.setInfo(message);
+        return registerResponse;
+    }
+
+    public ChangePasswordResponse createChangePasswordResponseMessage(String message) {
+        ChangePasswordResponse changePasswordResponse = new ChangePasswordResponse();
+        changePasswordResponse.setInfo(message);
+        return changePasswordResponse;
     }
 }

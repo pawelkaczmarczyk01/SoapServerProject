@@ -2,17 +2,17 @@ package com.example.SoapServerProject.web.service;
 
 import localhost._8080.*;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+
 public interface ReservationService {
 
-    InfoResponse addReservation(ReservationRequest reservationRequest);
+    AddReservationResponse addReservation(ReservationRequest reservationRequest);
 
-    InfoResponse updateReservation(int userId, ReservationRequest reservationRequest);
+    DeleteReservationByIdResponse deleteReservation(int userId, int reservationId);
 
-    InfoResponse deleteReservation(int userId, int reservationId);
+    FindReservationByIdResponse findReservationById(int userId, int reservationId) throws DatatypeConfigurationException;
 
-    FindReservationByIdResponse findReservationById(int userId, int reservationId);
+    FindAllReservationsResponse findAll() throws DatatypeConfigurationException;
 
-    FindAllReservationsResponse findAll();
-
-    FindAllReservationsByUserIdResponse findAllReservationByUserId(int userId);
+    FindAllReservationsByUserIdResponse findAllReservationByUserId(int userId) throws DatatypeConfigurationException;
 }

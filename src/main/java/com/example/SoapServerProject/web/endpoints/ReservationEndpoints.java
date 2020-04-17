@@ -8,6 +8,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+
 @Endpoint
 public class ReservationEndpoints {
 
@@ -18,37 +20,31 @@ public class ReservationEndpoints {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addReservationRequest")
     @ResponsePayload
-    public InfoResponse addReservation(@RequestPayload AddReservationRequest addReservationRequest) {
+    public AddReservationResponse addReservation(@RequestPayload AddReservationRequest addReservationRequest) {
         return reservationService.addReservation(addReservationRequest.getReservation());
-    }
-
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateReservationRequest")
-    @ResponsePayload
-    public InfoResponse updateReservation(@RequestPayload UpdateReservationRequest updateReservationRequest) {
-        return reservationService.updateReservation(updateReservationRequest.getUserId(), updateReservationRequest.getReservation());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteReservationByIdRequest")
     @ResponsePayload
-    public InfoResponse deleteReservation(@RequestPayload DeleteReservationByIdRequest deleteReservationByIdRequest) {
+    public DeleteReservationByIdResponse deleteReservation(@RequestPayload DeleteReservationByIdRequest deleteReservationByIdRequest) {
         return reservationService.deleteReservation(deleteReservationByIdRequest.getUserId(), deleteReservationByIdRequest.getReservationId());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "findReservationByIdRequest")
     @ResponsePayload
-    private FindReservationByIdResponse findReservationsById(@RequestPayload FindReservationByIdRequest findReservationByIdRequest) {
+    private FindReservationByIdResponse findReservationsById(@RequestPayload FindReservationByIdRequest findReservationByIdRequest) throws DatatypeConfigurationException {
         return reservationService.findReservationById(findReservationByIdRequest.getUserId(), findReservationByIdRequest.getReservationId());
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "findAllReservationsRequest")
     @ResponsePayload
-    public FindAllReservationsResponse findAllReservations() {
+    public FindAllReservationsResponse findAllReservations() throws DatatypeConfigurationException {
         return reservationService.findAll();
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "findAllReservationsByUserIdRequest")
     @ResponsePayload
-    public FindAllReservationsByUserIdResponse findAllReservationsByUserId(@RequestPayload FindAllReservationsByUserIdRequest findAllReservationsByUserIdRequest) {
+    public FindAllReservationsByUserIdResponse findAllReservationsByUserId(@RequestPayload FindAllReservationsByUserIdRequest findAllReservationsByUserIdRequest) throws DatatypeConfigurationException {
         return reservationService.findAllReservationByUserId(findAllReservationsByUserIdRequest.getUserId());
     }
 }

@@ -1,17 +1,14 @@
 package com.example.SoapServerProject.web.service;
 
-import localhost._8080.FindAllHotelsResponse;
-import localhost._8080.FindHotelByIdResponse;
-import localhost._8080.HotelRequest;
-import localhost._8080.InfoResponse;
+import localhost._8080.*;
 
 public interface HotelService {
 
-    InfoResponse addHotel(HotelRequest hotelRequest);
+    AddHotelResponse addHotel(HotelRequest hotelRequest);
 
-    InfoResponse updateHotel(int id, HotelRequest hotelRequest);
+    UpdateHotelResponse updateHotel(int id, HotelRequest hotelRequest);
 
-    InfoResponse deleteHotel(int id);
+    DeleteHotelByIdResponse deleteHotel(int id);
 
     FindHotelByIdResponse findHotelById(int id);
 

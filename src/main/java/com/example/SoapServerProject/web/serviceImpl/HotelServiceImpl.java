@@ -28,7 +28,7 @@ public class HotelServiceImpl implements HotelService {
     private AssortmentDAO assortmentDAO;
 
     @Override
-    public InfoResponse addHotel(HotelRequest hotelRequest) {
+    public AddHotelResponse addHotel(HotelRequest hotelRequest) {
         Hotel hotelFromDb = hotelDAO.findHotelByHotelName(hotelRequest.getHotelName());
         if (hotelFromDb == null) {
             Hotel hotel = new Hotel()
@@ -36,14 +36,14 @@ public class HotelServiceImpl implements HotelService {
                     .withHotelImagePath(hotelRequest.getHotelImagePath());
             hotelDAO.save(hotel);
 
-            return createInfoResponseMessage("Successfully added hotel");
+            return createAddHotelResponseMessage("Successfully added hotel");
         } else {
             throw new ServiceException("Hotel name must be unique");
         }
     }
 
     @Override
-    public InfoResponse updateHotel(int id, HotelRequest hotelRequest) {
+    public UpdateHotelResponse updateHotel(int id, HotelRequest hotelRequest) {
         Hotel hotelFromDb = Optional.ofNullable(hotelDAO.findHotelByHotelName(hotelRequest.getHotelName())).orElse(new Hotel());
 
         if (hotelFromDb.getId() == null) {
@@ -57,7 +57,7 @@ public class HotelServiceImpl implements HotelService {
                 }
                 hotelDAO.save(hotel);
 
-                return createInfoResponseMessage("Successfully updated hotel");
+                return createUpdateHotelResponseMessage("Successfully updated hotel");
             } else {
                 throw new ServiceException("Hotel with given id is not existed");
             }
@@ -67,7 +67,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public InfoResponse deleteHotel(int id) {
+    public DeleteHotelByIdResponse deleteHotel(int id) {
         if (hotelDAO.findHotelById(id) != null) {
             List<Room> roomListFromDb = roomDAO.findAll();
             roomListFromDb = roomListFromDb.stream().filter(hotelId -> hotelId.getHotelId().getId().equals(id)).collect(Collectors.toList());
@@ -79,7 +79,7 @@ public class HotelServiceImpl implements HotelService {
 
             hotelDAO.deleteHotelById(id);
 
-            return createInfoResponseMessage("Successfully deleted hotel");
+            return createDeleteHotelByIdResponseMessage("Successfully deleted hotel");
         } else {
             throw new ServiceException("Hotel with given id is not existed");
         }
@@ -115,9 +115,21 @@ public class HotelServiceImpl implements HotelService {
         return findAllHotelsResponse;
     }
 
-    public InfoResponse createInfoResponseMessage(String message) {
-        InfoResponse infoResponse = new InfoResponse();
-        infoResponse.setInfo(message);
-        return infoResponse;
+    public AddHotelResponse createAddHotelResponseMessage(String message) {
+        AddHotelResponse addHotelResponse = new AddHotelResponse();
+        addHotelResponse.setInfo(message);
+        return addHotelResponse;
+    }
+
+    public UpdateHotelResponse createUpdateHotelResponseMessage(String message) {
+        UpdateHotelResponse updateHotelResponse = new UpdateHotelResponse();
+        updateHotelResponse.setInfo(message);
+        return updateHotelResponse;
+    }
+
+    public DeleteHotelByIdResponse createDeleteHotelByIdResponseMessage(String message) {
+        DeleteHotelByIdResponse deleteHotelByIdResponse = new DeleteHotelByIdResponse();
+        deleteHotelByIdResponse.setInfo(message);
+        return deleteHotelByIdResponse;
     }
 }
