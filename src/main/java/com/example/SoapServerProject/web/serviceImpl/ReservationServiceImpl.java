@@ -123,6 +123,7 @@ public class ReservationServiceImpl implements ReservationService {
         gregorianCalendarFrom.setTime(reservationFromDb.getReservationFrom());
         gregorianCalendarTo.setTime(reservationFromDb.getRoomReservationTo());
 
+        reservationResponse.setId(reservationFromDb.getId());
         reservationResponse.setRoomId(new Room().withId(reservationFromDb.getRoomId().getId()).getId());
         reservationResponse.setUserId(new User().withId(reservationFromDb.getUserId().getId()).getId());
         reservationResponse.setRoomReservationFrom(DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendarFrom));
