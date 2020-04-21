@@ -12,12 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.xml.ws.soap.MTOM;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@MTOM
 public class HotelServiceImpl implements HotelService {
 
     @Autowired
@@ -33,7 +35,7 @@ public class HotelServiceImpl implements HotelService {
         if (hotelFromDb == null) {
             Hotel hotel = new Hotel()
                     .withHotelName(hotelRequest.getHotelName())
-                    .withHotelImagePath(hotelRequest.getHotelImagePath());
+                    .withHotelImagePath(hotelRequest.getImage());
             hotelDAO.save(hotel);
 
             return createAddHotelResponseMessage("Successfully added hotel");
@@ -52,8 +54,8 @@ public class HotelServiceImpl implements HotelService {
                 if (!hotelRequest.getHotelName().isEmpty() && hotelRequest.getHotelName() != null) {
                     hotel.setHotelName(hotelRequest.getHotelName());
                 }
-                if (!hotelRequest.getHotelImagePath().isEmpty() && hotelRequest.getHotelImagePath() != null) {
-                    hotel.setHotelImagePath(hotelRequest.getHotelImagePath());
+                if (hotelRequest.getImage().length != 0) {
+                    hotel.setHotelImagePath(hotelRequest.getImage());
                 }
                 hotelDAO.save(hotel);
 
@@ -93,7 +95,7 @@ public class HotelServiceImpl implements HotelService {
 
         hotelResponse.setId(hotel.getId());
         hotelResponse.setHotelName(hotel.getHotelName());
-        hotelResponse.setHotelImagePath(hotel.getHotelImagePath());
+        hotelResponse.setImage(hotel.getHotelImagePath());
 
         findHotelByIdResponse.setHotel(hotelResponse);
         return findHotelByIdResponse;
@@ -108,7 +110,7 @@ public class HotelServiceImpl implements HotelService {
             HotelResponse hotelResponse = new HotelResponse();
             hotelResponse.setId(hotelFromDb.getId());
             hotelResponse.setHotelName(hotelFromDb.getHotelName());
-            hotelResponse.setHotelImagePath(hotelFromDb.getHotelImagePath());
+//            hotelResponse.setHotelImagePath(hotelFromDb.getHotelImagePath());
             findAllHotelsResponse.getHotelList().add(hotelResponse);
         }
 
