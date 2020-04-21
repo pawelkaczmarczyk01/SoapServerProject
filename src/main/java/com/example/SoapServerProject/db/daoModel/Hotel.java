@@ -35,16 +35,17 @@ public class Hotel {
         return this;
     }
 
+    @Lob
     @Column
-    private String hotelImagePath;
+    private byte[] hotelImagePath;
 
-    public String getHotelImagePath() {
+    public byte[] getHotelImagePath() {
         return hotelImagePath;
     }
-    public void setHotelImagePath(String hotelImagePath) {
+    public void setHotelImagePath(byte[] hotelImagePath) {
         this.hotelImagePath = hotelImagePath;
     }
-    public Hotel withHotelImagePath(String hotelImagePath) {
+    public Hotel withHotelImagePath(byte[] hotelImagePath) {
         setHotelImagePath(hotelImagePath);
         return this;
     }
