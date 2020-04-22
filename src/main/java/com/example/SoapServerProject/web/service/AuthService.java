@@ -7,7 +7,7 @@ import localhost._8080.RegisterResponse;
 
 public interface AuthService {
 
-    LoginResponse login(String login, String password);
+    LoginResponse login(String login, String password) throws InterruptedException;
 
     RegisterResponse register(RegisterRequest registerRequest);
 
