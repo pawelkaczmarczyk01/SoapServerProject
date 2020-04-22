@@ -5,7 +5,10 @@ import com.example.SoapServerProject.db.daoModel.User;
 import com.example.SoapServerProject.web.service.AuthService;
 import localhost._8080.*;
 import org.hibernate.service.spi.ServiceException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +21,10 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public LoginResponse login(String login, String password) {
+    public LoginResponse login(String login, String password) throws InterruptedException {
         LoginResponse loginResponse = new LoginResponse();
         User userFromDb = userDAO.findUserByUserLogin(login);
+        getAsyncValue();
         if (userFromDb == null) {
             throw new ServiceException("Login or password is invalid");
         }
@@ -90,5 +94,14 @@ public class AuthServiceImpl implements AuthService {
         ChangePasswordResponse changePasswordResponse = new ChangePasswordResponse();
         changePasswordResponse.setInfo(message);
         return changePasswordResponse;
+    }
+
+    public static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
+
+    @Async("threadPoolTaskExecutor")
+    public void getAsyncValue() throws InterruptedException {
+        logger.info("async job started: " + Thread.currentThread().getId());
+        Thread.sleep(1000);
+        logger.info("async job finished: " + Thread.currentThread().getId());
     }
 }

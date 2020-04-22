@@ -18,7 +18,7 @@ public class AuthEndpoints {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "loginRequest")
     @ResponsePayload
-    public LoginResponse login(@RequestPayload LoginRequest loginRequest) {
+    public LoginResponse login(@RequestPayload LoginRequest loginRequest) throws InterruptedException {
         return authService.login(loginRequest.getLogin(), loginRequest.getPassword());
     }
 

@@ -110,7 +110,7 @@ public class HotelServiceImpl implements HotelService {
             HotelResponse hotelResponse = new HotelResponse();
             hotelResponse.setId(hotelFromDb.getId());
             hotelResponse.setHotelName(hotelFromDb.getHotelName());
-//            hotelResponse.setHotelImagePath(hotelFromDb.getHotelImagePath());
+            hotelResponse.setImage(hotelFromDb.getHotelImagePath());
             findAllHotelsResponse.getHotelList().add(hotelResponse);
         }
 
