@@ -97,7 +97,7 @@
     <xs:complexType name="hotelRequest">
         <xs:sequence>
             <xs:element name="hotelName" type="xs:string"/>
-            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="hotelImagePath" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -106,7 +106,7 @@
         <xs:sequence>
             <xs:element name="id" type="xs:int"/>
             <xs:element name="hotelName" type="xs:string"/>
-            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="hotelImagePath" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
