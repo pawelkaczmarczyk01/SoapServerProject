@@ -35,7 +35,7 @@ public class HotelServiceImpl implements HotelService {
         if (hotelFromDb == null) {
             Hotel hotel = new Hotel()
                     .withHotelName(hotelRequest.getHotelName())
-                    .withHotelImagePath(hotelRequest.getImage());
+                    .withHotelImagePath(hotelRequest.getHotelImagePath());
             hotelDAO.save(hotel);
 
             return createAddHotelResponseMessage("Successfully added hotel");
@@ -54,8 +54,8 @@ public class HotelServiceImpl implements HotelService {
                 if (!hotelRequest.getHotelName().isEmpty() && hotelRequest.getHotelName() != null) {
                     hotel.setHotelName(hotelRequest.getHotelName());
                 }
-                if (hotelRequest.getImage().length != 0) {
-                    hotel.setHotelImagePath(hotelRequest.getImage());
+                if (!hotelRequest.getHotelImagePath().isEmpty() && hotelRequest.getHotelImagePath() != null) {
+                    hotel.setHotelImagePath(hotelRequest.getHotelImagePath());
                 }
                 hotelDAO.save(hotel);
 
@@ -95,7 +95,7 @@ public class HotelServiceImpl implements HotelService {
 
         hotelResponse.setId(hotel.getId());
         hotelResponse.setHotelName(hotel.getHotelName());
-        hotelResponse.setImage(hotel.getHotelImagePath());
+        hotelResponse.setHotelImagePath(hotel.getHotelImagePath());
 
         findHotelByIdResponse.setHotel(hotelResponse);
         return findHotelByIdResponse;
@@ -110,7 +110,7 @@ public class HotelServiceImpl implements HotelService {
             HotelResponse hotelResponse = new HotelResponse();
             hotelResponse.setId(hotelFromDb.getId());
             hotelResponse.setHotelName(hotelFromDb.getHotelName());
-            hotelResponse.setImage(hotelFromDb.getHotelImagePath());
+            hotelResponse.setHotelImagePath(hotelFromDb.getHotelImagePath());
             findAllHotelsResponse.getHotelList().add(hotelResponse);
         }
 
