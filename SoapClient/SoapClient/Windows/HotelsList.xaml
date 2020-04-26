@@ -7,7 +7,24 @@
         mc:Ignorable="d"
         Title="HotelsList" Height="900" Width="1800">
     <Grid>
-        <ListBox Name="listOfHotels" Margin="10,10,10,10"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ChooseHotel">
+        <Menu Height="40" HorizontalAlignment="Left" Name="MenuData" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Menu" Height="40" Width="auto">
+                <Label MouseDown="Logout">
+                    <Label.Content>
+                        <AccessText Text="{Binding Path=Login, StringFormat=Wyloguj: {0}}" TextAlignment="Center"/>
+                    </Label.Content>
+                </Label>
+            </MenuItem>
+        </Menu>
+        <Button Name="ButtonData" Style="{DynamicResource MaterialDesignRaisedDarkButton}" FontSize="15" MinWidth="40" Height="Auto" Click="Logout" Margin="1570,10,15,810">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Wyloguj: "/>
+                    <TextBlock Text="{Binding Path=Login}"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <ListBox Name="listOfHotels" Margin="10,45,10,10"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ChooseHotel">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="7" Padding="20 20 20 0" Background="Azure" CornerRadius="8" BorderBrush="CornflowerBlue" BorderThickness="5">

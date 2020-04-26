@@ -7,13 +7,30 @@
         mc:Ignorable="d"
         Height="1000" Width="1210" ResizeMode="NoResize">
     <Grid>
-
-        <TextBox Margin="26,54,864,872" Text="Wpisz nazwę pokoju" TextAlignment="Center" FontSize="25" Name="RoomNameBox" GotFocus="RoomNameEnter" Foreground="Silver" LostFocus="RoomNameLeave"/>
-        <TextBox Margin="0,54,745,872" Text="Cena od" TextAlignment="Center" FontSize="25" Name="PriceStartBox" GotFocus="RoomNameEnter" Foreground="Silver" RenderTransformOrigin="2.394,1.589" HorizontalAlignment="Right" Width="90"/>
-        <TextBlock Margin="0,54,716,872" Text="-" TextAlignment="Center" FontSize="25" HorizontalAlignment="Right" Width="24"/>
-        <TextBox Margin="0,54,611,872" Text="Cena do" TextAlignment="Center" FontSize="25" Name="PriceEndBox" GotFocus="RoomNameEnter" Foreground="Silver" HorizontalAlignment="Right" Width="100"/>
-        <Button Content="Filtruj" Height="45" Margin="1059,0,29,872" VerticalAlignment="Bottom" FontSize="20"/>
-        <ListBox Name="listOfHotels" Margin="10,118,10,10" MouseDoubleClick="ChooseRoom">
+        <Menu Height="40" HorizontalAlignment="Left" Name="MenuData" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Menu" Height="40" Width="auto">
+                <Label MouseDown="Logout">
+                    <Label.Content>
+                        <AccessText Text="{Binding Path=Login, StringFormat=Wyloguj: {0}}" TextAlignment="Center"/>
+                    </Label.Content>
+                </Label>
+            </MenuItem>
+            <MenuItem PreviewMouseDown="GoBack" Header="Wróć" Height="40" Width="auto"/>
+        </Menu>
+        <Button Name="ButtonData" Style="{DynamicResource MaterialDesignRaisedDarkButton}" FontSize="15" MinWidth="40" Height="Auto" Click="Logout" Margin="987,10,15,914">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Wyloguj: "/>
+                    <TextBlock Text="{Binding Path=Login}"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <TextBox Margin="26,62,864,858" Text="Wpisz nazwę pokoju" TextAlignment="Center" FontSize="25" Name="RoomNameBox" GotFocus="RoomNameEnter" Foreground="Silver" LostFocus="RoomNameLeave"/>
+        <TextBox Margin="0,62,717,858" Text="Cena od" TextAlignment="Center" FontSize="25" Name="PriceStartBox" GotFocus="RoomNameEnter" Foreground="Silver" RenderTransformOrigin="2.394,1.589" HorizontalAlignment="Right" Width="119"/>
+        <TextBlock Margin="0,68,669,858" Text="-" TextAlignment="Center" FontSize="25" HorizontalAlignment="Right" Width="24"/>
+        <TextBox Margin="0,62,533,858" Text="Cena do" TextAlignment="Center" FontSize="25" Name="PriceEndBox" GotFocus="RoomNameEnter" Foreground="Silver" HorizontalAlignment="Right" Width="120"/>
+        <Button Content="Filtruj" Height="45" Margin="745,0,343,858" VerticalAlignment="Bottom" FontSize="20"/>
+        <ListBox Name="listOfHotels" Margin="10,142,10,10" MouseDoubleClick="ChooseRoom">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Name="BorderBox" Width="1120" MaxHeight="550" Margin="7" Padding="20 20 20 0" Background="Azure" CornerRadius="8" BorderBrush="CornflowerBlue" BorderThickness="5">

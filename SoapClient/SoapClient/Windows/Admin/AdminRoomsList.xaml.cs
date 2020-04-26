@@ -2,13 +2,11 @@
 using Contracts.ViewModels.HotelsListModels;
 using Contracts.ViewModels.RoomView;
 using SoapClient.HotelSoap;
-using SoapClient.Windows.Authorization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,28 +17,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SoapClient.Windows
+namespace SoapClient.Windows.Admin
 {
     /// <summary>
-    /// Interaction logic for RoomsList.xaml
+    /// Interaction logic for AdminRoomsList.xaml
     /// </summary>
-    public partial class RoomsList : Window
+    public partial class AdminRoomsList : Window
     {
         private List<Room> ListOfRooms { get; set; }
         private int HotelId { get; set; }
         private Account CurrentUser { get; set; }
 
-        public RoomsList(List<Room> list, int hotelId)
+        public AdminRoomsList(List<Room> list, int hotelId)
         {
             InitializeComponent();
             HotelId = hotelId;
             this.Title = GetHotelName();
             ListOfRooms = list;
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            listOfHotels.ItemsSource = ListOfRooms;
-            CurrentUser = (Account)Application.Current.Resources["user"];
-            MenuData.DataContext = CurrentUser;
-            ButtonData.DataContext = CurrentUser;
+            listOfRooms.ItemsSource = ListOfRooms;
         }
 
         private string GetHotelName()
@@ -56,7 +51,7 @@ namespace SoapClient.Windows
         private void ChooseRoom(object sender, MouseButtonEventArgs e)
         {
             int i = 0;
-            while (listOfHotels.SelectedIndex != i)
+            while (listOfRooms.SelectedIndex != i)
             {
                 i++;
             }
@@ -117,40 +112,6 @@ namespace SoapClient.Windows
             return imgByteArr;
         }
 
-        private void RoomNameEnter(object sender, RoutedEventArgs e)
-        {
-            if (RoomNameBox.Text == "Wyszukaj pokoju")
-            {
-                RoomNameBox.Text = "";
-                RoomNameBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-            }
-        }
-
-        private void RoomNameLeave(object sender, RoutedEventArgs e)
-        {
-            if (RoomNameBox.Text == "" || RoomNameBox.Text == null)
-            {
-                RoomNameBox.Text = "Wyszukaj pokoju";
-                RoomNameBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
-            }
-        }
-
-        private void Logout(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Resources["user"] = null;
-            var window = new LogIn();
-            window.Show();
-            Close();
-        }
-
-        private void GoBack(object sender, MouseButtonEventArgs e)
-        {
-            var list = PrepareHotelsList();
-            var window = new HotelsList(list);
-            Close();
-            window.Show();
-        }
-
         private List<Hotel> PrepareHotelsList()
         {
             try
@@ -174,6 +135,50 @@ namespace SoapClient.Windows
                 MessageBox.Show("Błąd", e.Data.ToString(), MessageBoxButton.OK);
                 return new List<Hotel>();
             }
+        }
+
+        private void DeleteRoom(object sender, RoutedEventArgs e)
+        {
+            if (listOfRooms.SelectedIndex == -1)
+            {
+                return;
+            }
+            MessageBoxResult boxResult = MessageBox.Show("Czy jesteś pewien, że chcesz usunąć użytkownika?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (boxResult == MessageBoxResult.No)
+            {
+                return;
+            }
+            int i = 0;
+            while (listOfRooms.SelectedIndex != i)
+            {
+                i++;
+            }
+            var room = ListOfRooms[i];
+            ListOfRooms.Remove(room);
+            var client = new HotelsPortClient();
+            var request = new deleteRoomByIdRequest();
+            request.id = room.RoomId;
+            var response = client.deleteRoomById(request);
+            listOfRooms.ItemsSource = ListOfRooms;
+            listOfRooms.Items.Refresh();
+            MessageBox.Show(response.info, "Usuwanie zakończone", MessageBoxButton.OK);
+            Close();
+        }
+
+        private void EditRoom(object sender, RoutedEventArgs e)
+        {
+            if (listOfRooms.SelectedIndex == -1)
+            {
+                return;
+            }
+            int i = 0;
+            while (listOfRooms.SelectedIndex != i)
+            {
+                i++;
+            }
+            var room = ListOfRooms[i];
+            var window = new Window();
+            window.ShowDialog();
         }
 
         //private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

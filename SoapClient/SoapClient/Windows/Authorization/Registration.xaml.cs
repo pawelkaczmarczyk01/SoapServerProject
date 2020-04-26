@@ -37,10 +37,6 @@ namespace SoapClient.Windows.Authorization
 
         private void FinishRegistration(object sender, RoutedEventArgs e)
         {
-            //if (!accountRepository.IsLoginCorrect(LoginTextBox.Text))
-            //{
-            //    MessageBox.Show("Login jest zajęty.", "Błędny login", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
             if (LoginTextBox.Text.Length < 3 || LoginTextBox.Text == null || LoginTextBox.Text.Equals("Login"))
             {
                 MessageBox.Show("Login musi mieć przynajmniej 3 znaki.", "Błędny login", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -64,23 +60,18 @@ namespace SoapClient.Windows.Authorization
             else
             {
                 var registerUserRequest = new RegisterUserRequest(LoginTextBox.Text, PasswordTextBoxP.Password, NameTextBox.Text, SurnameTextBox.Text);
-
-                try
+                var isRegistered = RegisterUser(registerUserRequest);
+                if (isRegistered)
                 {
-                    RegisterUser(registerUserRequest);
                     MessageBox.Show("Konto założono poprawnie.", "Rejestracja zakończona", MessageBoxButton.OK);
                     var window = new LogIn();
                     Close();
                     window.Show();
                 }
-                catch (Exception ex)
-                {
-
-                }      
             }
         }
 
-        private void RegisterUser(RegisterUserRequest registerUserRequest)
+        private bool RegisterUser(RegisterUserRequest registerUserRequest)
         {
             var client = new HotelsPortClient();
             var request = new addUserRequest();
@@ -92,11 +83,13 @@ namespace SoapClient.Windows.Authorization
             request.user = userRequest;
             try
             {
-                client.addUser(request);           
+                client.addUser(request);
+                return true;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Błąd podczas rejestracji", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
         }
 

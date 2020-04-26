@@ -1,6 +1,7 @@
 ﻿using Contracts.Models;
 using Contracts.ViewModels.HotelsListModels;
 using SoapClient.HotelSoap;
+using SoapClient.Windows.Authorization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,8 @@ namespace SoapClient.Windows
     /// </summary>
     public partial class HotelsList : Window
     {
-        public List<Hotel> ListOfHotels { get; set; }
+        private List<Hotel> ListOfHotels { get; set; }
+        private Account CurrentUser { get; set; }
 
         public HotelsList(List<Hotel> list)
         {
@@ -32,6 +34,9 @@ namespace SoapClient.Windows
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             listOfHotels.ItemsSource = ListOfHotels;
+            CurrentUser = (Account)Application.Current.Resources["user"];
+            MenuData.DataContext = CurrentUser;
+            ButtonData.DataContext = CurrentUser;
         }
 
         private void ChooseHotel(object sender, MouseButtonEventArgs e)
@@ -42,10 +47,46 @@ namespace SoapClient.Windows
                 i++;
             }
             var hotel = ListOfHotels[i];
-            //Close();
-            var roomsList = new RoomsList(hotel);
-            roomsList.Show();
+            var list = PrepareRoomsList(hotel.Id);
+            var window = new RoomsList(list, hotel.Id);
+            Close();
+            window.Show();
         }
 
+        private List<Room> PrepareRoomsList(int hotelId)
+        {
+            var client = new HotelsPortClient();
+            var request = new findAllRoomsByHotelIdRequest();
+            request.hotelId = hotelId;
+            var response = client.findAllRoomsByHotelId(request);
+
+            var list = new List<Room>();
+            foreach (var item in response)
+            {
+                var room = new Room(item.id, item.roomName, item.roomDescription, ImageConversion(item.roomImagePath), item.roomPrice);
+                list.Add(room);
+            }
+
+            return list;
+        }
+
+        private byte[] ImageConversion(string imageName)
+        {
+
+            FileStream fs = new FileStream(imageName, FileMode.Open, FileAccess.Read);
+            byte[] imgByteArr = new byte[fs.Length];
+            fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+
+            return imgByteArr;
+        }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources["user"] = null;
+            var window = new LogIn();
+            window.Show();
+            Close();
+        }
     }
 }

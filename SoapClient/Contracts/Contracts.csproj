@@ -47,6 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\RegisterUserRequest.cs" />
     <Compile Include="Responses\UserResponse.cs" />
+    <Compile Include="ViewModels\Admin\Reservation.cs" />
+    <Compile Include="ViewModels\Admin\ReservationByUser.cs" />
+    <Compile Include="ViewModels\Admin\User.cs" />
     <Compile Include="ViewModels\HotelsListModels\Hotel.cs" />
     <Compile Include="ViewModels\HotelsListModels\Room.cs" />
     <Compile Include="ViewModels\RoomView\RoomDetails.cs" />

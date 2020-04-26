@@ -31,6 +31,14 @@ namespace SoapClient.HotelSoap {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllRoomsByHotelIdResponse> findAllRoomsByHotelIdAsync(SoapClient.HotelSoap.findAllRoomsByHotelIdRequest1 request);
         
+        // CODEGEN: Generating message contract since the operation findAllReservationsByUserId is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.findAllReservationsByUserIdResponse findAllReservationsByUserId(SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsByUserIdResponse> findAllReservationsByUserIdAsync(SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 request);
+        
         // CODEGEN: Generating message contract since the operation findAllHotels is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -39,13 +47,29 @@ namespace SoapClient.HotelSoap {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllHotelsResponse> findAllHotelsAsync(SoapClient.HotelSoap.findAllHotelsRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation updateHotel is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        // CODEGEN: Generating message contract since the operation addUser is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void updateHotel(SoapClient.HotelSoap.updateHotelRequest1 request);
+        SoapClient.HotelSoap.addUserResponse1 addUser(SoapClient.HotelSoap.addUserRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addUserResponse1> addUserAsync(SoapClient.HotelSoap.addUserRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation updateUser is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.updateUserResponse1 updateUser(SoapClient.HotelSoap.updateUserRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateUserResponse1> updateUserAsync(SoapClient.HotelSoap.updateUserRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation updateHotel is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.updateHotelResponse1 updateHotel(SoapClient.HotelSoap.updateHotelRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateHotelResponse1> updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest1 request);
         
         // CODEGEN: Generating message contract since the operation findRoomById is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -56,12 +80,20 @@ namespace SoapClient.HotelSoap {
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findRoomByIdResponse1> findRoomByIdAsync(SoapClient.HotelSoap.findRoomByIdRequest1 request);
         
         // CODEGEN: Generating message contract since the operation addHotel is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void addHotel(SoapClient.HotelSoap.addHotelRequest1 request);
+        SoapClient.HotelSoap.addHotelResponse1 addHotel(SoapClient.HotelSoap.addHotelRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task addHotelAsync(SoapClient.HotelSoap.addHotelRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addHotelResponse1> addHotelAsync(SoapClient.HotelSoap.addHotelRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation deleteRoomById is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.deleteRoomByIdResponse1 deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteRoomByIdResponse1> deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest1 request);
         
         // CODEGEN: Generating message contract since the operation findAllRooms is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -71,21 +103,45 @@ namespace SoapClient.HotelSoap {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllRoomsResponse> findAllRoomsAsync(SoapClient.HotelSoap.findAllRoomsRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation updateUser is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        // CODEGEN: Generating message contract since the operation addReservation is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void updateUser(SoapClient.HotelSoap.updateUserRequest1 request);
+        SoapClient.HotelSoap.addReservationResponse1 addReservation(SoapClient.HotelSoap.addReservationRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task updateUserAsync(SoapClient.HotelSoap.updateUserRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addReservationResponse1> addReservationAsync(SoapClient.HotelSoap.addReservationRequest1 request);
         
         // CODEGEN: Generating message contract since the operation addRoom is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void addRoom(SoapClient.HotelSoap.addRoomRequest1 request);
+        SoapClient.HotelSoap.addRoomResponse1 addRoom(SoapClient.HotelSoap.addRoomRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task addRoomAsync(SoapClient.HotelSoap.addRoomRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addRoomResponse1> addRoomAsync(SoapClient.HotelSoap.addRoomRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation deleteUserById is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.deleteUserByIdResponse1 deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteUserByIdResponse1> deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation findAllReservations is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.findAllReservationsResponse findAllReservations(SoapClient.HotelSoap.findAllReservationsRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsResponse> findAllReservationsAsync(SoapClient.HotelSoap.findAllReservationsRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation findReservationById is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.findReservationByIdResponse1 findReservationById(SoapClient.HotelSoap.findReservationByIdRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findReservationByIdResponse1> findReservationByIdAsync(SoapClient.HotelSoap.findReservationByIdRequest1 request);
         
         // CODEGEN: Generating message contract since the operation findHotelById is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -96,36 +152,36 @@ namespace SoapClient.HotelSoap {
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findHotelByIdResponse1> findHotelByIdAsync(SoapClient.HotelSoap.findHotelByIdRequest1 request);
         
         // CODEGEN: Generating message contract since the operation changePassword is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void changePassword(SoapClient.HotelSoap.changePasswordRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest1 request);
-        
-        // CODEGEN: Generating message contract since the operation info is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        SoapClient.HotelSoap.infoResponse1 info(SoapClient.HotelSoap.infoRequest1 request);
+        SoapClient.HotelSoap.changePasswordResponse1 changePassword(SoapClient.HotelSoap.changePasswordRequest1 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<SoapClient.HotelSoap.infoResponse1> infoAsync(SoapClient.HotelSoap.infoRequest1 request);
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.changePasswordResponse1> changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation addUser is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        // CODEGEN: Generating message contract since the operation deleteReservationById is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void addUser(SoapClient.HotelSoap.addUserRequest1 request);
+        SoapClient.HotelSoap.deleteReservationByIdResponse1 deleteReservationById(SoapClient.HotelSoap.deleteReservationByIdRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task addUserAsync(SoapClient.HotelSoap.addUserRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteReservationByIdResponse1> deleteReservationByIdAsync(SoapClient.HotelSoap.deleteReservationByIdRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation deleteRoomById is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        // CODEGEN: Generating message contract since the operation updateRoom is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest1 request);
+        SoapClient.HotelSoap.updateRoomResponse1 updateRoom(SoapClient.HotelSoap.updateRoomRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateRoomResponse1> updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest1 request);
+        
+        // CODEGEN: Generating message contract since the operation register is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SoapClient.HotelSoap.registerResponse1 register(SoapClient.HotelSoap.registerRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.registerResponse1> registerAsync(SoapClient.HotelSoap.registerRequest1 request);
         
         // CODEGEN: Generating message contract since the operation findAllUsers is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -135,29 +191,13 @@ namespace SoapClient.HotelSoap {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllUsersResponse> findAllUsersAsync(SoapClient.HotelSoap.findAllUsersRequest1 request);
         
-        // CODEGEN: Generating message contract since the operation register is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void register(SoapClient.HotelSoap.registerRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task registerAsync(SoapClient.HotelSoap.registerRequest1 request);
-        
-        // CODEGEN: Generating message contract since the operation updateRoom is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void updateRoom(SoapClient.HotelSoap.updateRoomRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest1 request);
-        
         // CODEGEN: Generating message contract since the operation deleteHotelById is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest1 request);
+        SoapClient.HotelSoap.deleteHotelByIdResponse1 deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest1 request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteHotelByIdResponse1> deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest1 request);
         
         // CODEGEN: Generating message contract since the operation login is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -166,14 +206,6 @@ namespace SoapClient.HotelSoap {
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<SoapClient.HotelSoap.loginResponse1> loginAsync(SoapClient.HotelSoap.loginRequest1 request);
-        
-        // CODEGEN: Generating message contract since the operation deleteUserById is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="")]
-        System.Threading.Tasks.Task deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest1 request);
     }
     
     /// <remarks/>
@@ -474,6 +506,126 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
+    public partial class reservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int roomIdField;
+        
+        private int userIdField;
+        
+        private System.DateTime roomReservationFromField;
+        
+        private System.DateTime roomReservationToField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int roomId {
+            get {
+                return this.roomIdField;
+            }
+            set {
+                this.roomIdField = value;
+                this.RaisePropertyChanged("roomId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("userId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=2)]
+        public System.DateTime roomReservationFrom {
+            get {
+                return this.roomReservationFromField;
+            }
+            set {
+                this.roomReservationFromField = value;
+                this.RaisePropertyChanged("roomReservationFrom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
+        public System.DateTime roomReservationTo {
+            get {
+                return this.roomReservationToField;
+            }
+            set {
+                this.roomReservationToField = value;
+                this.RaisePropertyChanged("roomReservationTo");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
+    public partial class hotelRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string hotelNameField;
+        
+        private string hotelImagePathField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string hotelName {
+            get {
+                return this.hotelNameField;
+            }
+            set {
+                this.hotelNameField = value;
+                this.RaisePropertyChanged("hotelName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string hotelImagePath {
+            get {
+                return this.hotelImagePathField;
+            }
+            set {
+                this.hotelImagePathField = value;
+                this.RaisePropertyChanged("hotelImagePath");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
     public partial class userRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string userNameField;
@@ -548,52 +700,6 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
-    public partial class hotelRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string hotelNameField;
-        
-        private string hotelImagePathField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string hotelName {
-            get {
-                return this.hotelNameField;
-            }
-            set {
-                this.hotelNameField = value;
-                this.RaisePropertyChanged("hotelName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string hotelImagePath {
-            get {
-                return this.hotelImagePathField;
-            }
-            set {
-                this.hotelImagePathField = value;
-                this.RaisePropertyChanged("hotelImagePath");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
     public partial class hotelResponse : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idField;
@@ -635,6 +741,94 @@ namespace SoapClient.HotelSoap {
             set {
                 this.hotelImagePathField = value;
                 this.RaisePropertyChanged("hotelImagePath");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:8080")]
+    public partial class reservationResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private int roomIdField;
+        
+        private int userIdField;
+        
+        private System.DateTime roomReservationFromField;
+        
+        private System.DateTime roomReservationToField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int roomId {
+            get {
+                return this.roomIdField;
+            }
+            set {
+                this.roomIdField = value;
+                this.RaisePropertyChanged("roomId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("userId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
+        public System.DateTime roomReservationFrom {
+            get {
+                return this.roomReservationFromField;
+            }
+            set {
+                this.roomReservationFromField = value;
+                this.RaisePropertyChanged("roomReservationFrom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
+        public System.DateTime roomReservationTo {
+            get {
+                return this.roomReservationToField;
+            }
+            set {
+                this.roomReservationToField = value;
+                this.RaisePropertyChanged("roomReservationTo");
             }
         }
         
@@ -1061,6 +1255,73 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class findAllReservationsByUserIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int userIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("userId");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findAllReservationsByUserIdRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.findAllReservationsByUserIdRequest findAllReservationsByUserIdRequest;
+        
+        public findAllReservationsByUserIdRequest1() {
+        }
+        
+        public findAllReservationsByUserIdRequest1(SoapClient.HotelSoap.findAllReservationsByUserIdRequest findAllReservationsByUserIdRequest) {
+            this.findAllReservationsByUserIdRequest = findAllReservationsByUserIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findAllReservationsByUserIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="findAllReservationsByUserIdResponse", Namespace="http://localhost:8080", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("reservationList", IsNullable=false)]
+        public SoapClient.HotelSoap.reservationResponse[] findAllReservationsByUserIdResponse1;
+        
+        public findAllReservationsByUserIdResponse() {
+        }
+        
+        public findAllReservationsByUserIdResponse(SoapClient.HotelSoap.reservationResponse[] findAllReservationsByUserIdResponse1) {
+            this.findAllReservationsByUserIdResponse1 = findAllReservationsByUserIdResponse1;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
     public partial class findAllHotelsRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -1114,6 +1375,216 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class addUserRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private userRequest userField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public userRequest user {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+                this.RaisePropertyChanged("user");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class addUserResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addUserRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.addUserRequest addUserRequest;
+        
+        public addUserRequest1() {
+        }
+        
+        public addUserRequest1(SoapClient.HotelSoap.addUserRequest addUserRequest) {
+            this.addUserRequest = addUserRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addUserResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.addUserResponse addUserResponse;
+        
+        public addUserResponse1() {
+        }
+        
+        public addUserResponse1(SoapClient.HotelSoap.addUserResponse addUserResponse) {
+            this.addUserResponse = addUserResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class updateUserRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private userRequest userField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public userRequest user {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+                this.RaisePropertyChanged("user");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class updateUserResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateUserRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.updateUserRequest updateUserRequest;
+        
+        public updateUserRequest1() {
+        }
+        
+        public updateUserRequest1(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
+            this.updateUserRequest = updateUserRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateUserResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.updateUserResponse updateUserResponse;
+        
+        public updateUserResponse1() {
+        }
+        
+        public updateUserResponse1(SoapClient.HotelSoap.updateUserResponse updateUserResponse) {
+            this.updateUserResponse = updateUserResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
     public partial class updateHotelRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idField;
@@ -1154,6 +1625,38 @@ namespace SoapClient.HotelSoap {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class updateHotelResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1168,6 +1671,23 @@ namespace SoapClient.HotelSoap {
         
         public updateHotelRequest1(SoapClient.HotelSoap.updateHotelRequest updateHotelRequest) {
             this.updateHotelRequest = updateHotelRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateHotelResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.updateHotelResponse updateHotelResponse;
+        
+        public updateHotelResponse1() {
+        }
+        
+        public updateHotelResponse1(SoapClient.HotelSoap.updateHotelResponse updateHotelResponse) {
+            this.updateHotelResponse = updateHotelResponse;
         }
     }
     
@@ -1301,6 +1821,38 @@ namespace SoapClient.HotelSoap {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class addHotelResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1315,6 +1867,121 @@ namespace SoapClient.HotelSoap {
         
         public addHotelRequest1(SoapClient.HotelSoap.addHotelRequest addHotelRequest) {
             this.addHotelRequest = addHotelRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addHotelResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.addHotelResponse addHotelResponse;
+        
+        public addHotelResponse1() {
+        }
+        
+        public addHotelResponse1(SoapClient.HotelSoap.addHotelResponse addHotelResponse) {
+            this.addHotelResponse = addHotelResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteRoomByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteRoomByIdResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteRoomByIdRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest;
+        
+        public deleteRoomByIdRequest1() {
+        }
+        
+        public deleteRoomByIdRequest1(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
+            this.deleteRoomByIdRequest = deleteRoomByIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteRoomByIdResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteRoomByIdResponse deleteRoomByIdResponse;
+        
+        public deleteRoomByIdResponse1() {
+        }
+        
+        public deleteRoomByIdResponse1(SoapClient.HotelSoap.deleteRoomByIdResponse deleteRoomByIdResponse) {
+            this.deleteRoomByIdResponse = deleteRoomByIdResponse;
         }
     }
     
@@ -1377,33 +2044,51 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class updateUserRequest : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class addReservationRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int idField;
-        
-        private userRequest userField;
+        private reservationRequest reservationField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int id {
+        public reservationRequest reservation {
             get {
-                return this.idField;
+                return this.reservationField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
+                this.reservationField = value;
+                this.RaisePropertyChanged("reservation");
             }
         }
         
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class addReservationResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public userRequest user {
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
             get {
-                return this.userField;
+                return this.infoField;
             }
             set {
-                this.userField = value;
-                this.RaisePropertyChanged("user");
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
             }
         }
         
@@ -1421,16 +2106,33 @@ namespace SoapClient.HotelSoap {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class updateUserRequest1 {
+    public partial class addReservationRequest1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.updateUserRequest updateUserRequest;
+        public SoapClient.HotelSoap.addReservationRequest addReservationRequest;
         
-        public updateUserRequest1() {
+        public addReservationRequest1() {
         }
         
-        public updateUserRequest1(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
-            this.updateUserRequest = updateUserRequest;
+        public addReservationRequest1(SoapClient.HotelSoap.addReservationRequest addReservationRequest) {
+            this.addReservationRequest = addReservationRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addReservationResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.addReservationResponse addReservationResponse;
+        
+        public addReservationResponse1() {
+        }
+        
+        public addReservationResponse1(SoapClient.HotelSoap.addReservationResponse addReservationResponse) {
+            this.addReservationResponse = addReservationResponse;
         }
     }
     
@@ -1466,6 +2168,38 @@ namespace SoapClient.HotelSoap {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class addRoomResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1480,6 +2214,286 @@ namespace SoapClient.HotelSoap {
         
         public addRoomRequest1(SoapClient.HotelSoap.addRoomRequest addRoomRequest) {
             this.addRoomRequest = addRoomRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addRoomResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.addRoomResponse addRoomResponse;
+        
+        public addRoomResponse1() {
+        }
+        
+        public addRoomResponse1(SoapClient.HotelSoap.addRoomResponse addRoomResponse) {
+            this.addRoomResponse = addRoomResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteUserByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteUserByIdResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteUserByIdRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest;
+        
+        public deleteUserByIdRequest1() {
+        }
+        
+        public deleteUserByIdRequest1(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
+            this.deleteUserByIdRequest = deleteUserByIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteUserByIdResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteUserByIdResponse deleteUserByIdResponse;
+        
+        public deleteUserByIdResponse1() {
+        }
+        
+        public deleteUserByIdResponse1(SoapClient.HotelSoap.deleteUserByIdResponse deleteUserByIdResponse) {
+            this.deleteUserByIdResponse = deleteUserByIdResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class findAllReservationsRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findAllReservationsRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.findAllReservationsRequest findAllReservationsRequest;
+        
+        public findAllReservationsRequest1() {
+        }
+        
+        public findAllReservationsRequest1(SoapClient.HotelSoap.findAllReservationsRequest findAllReservationsRequest) {
+            this.findAllReservationsRequest = findAllReservationsRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findAllReservationsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="findAllReservationsResponse", Namespace="http://localhost:8080", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("reservationList", IsNullable=false)]
+        public SoapClient.HotelSoap.reservationResponse[] findAllReservationsResponse1;
+        
+        public findAllReservationsResponse() {
+        }
+        
+        public findAllReservationsResponse(SoapClient.HotelSoap.reservationResponse[] findAllReservationsResponse1) {
+            this.findAllReservationsResponse1 = findAllReservationsResponse1;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class findReservationByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int userIdField;
+        
+        private int reservationIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("userId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int reservationId {
+            get {
+                return this.reservationIdField;
+            }
+            set {
+                this.reservationIdField = value;
+                this.RaisePropertyChanged("reservationId");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class findReservationByIdResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private reservationResponse reservationField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public reservationResponse reservation {
+            get {
+                return this.reservationField;
+            }
+            set {
+                this.reservationField = value;
+                this.RaisePropertyChanged("reservation");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findReservationByIdRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.findReservationByIdRequest findReservationByIdRequest;
+        
+        public findReservationByIdRequest1() {
+        }
+        
+        public findReservationByIdRequest1(SoapClient.HotelSoap.findReservationByIdRequest findReservationByIdRequest) {
+            this.findReservationByIdRequest = findReservationByIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class findReservationByIdResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.findReservationByIdResponse findReservationByIdResponse;
+        
+        public findReservationByIdResponse1() {
+        }
+        
+        public findReservationByIdResponse1(SoapClient.HotelSoap.findReservationByIdResponse findReservationByIdResponse) {
+            this.findReservationByIdResponse = findReservationByIdResponse;
         }
     }
     
@@ -1655,48 +2669,13 @@ namespace SoapClient.HotelSoap {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class changePasswordRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.changePasswordRequest changePasswordRequest;
-        
-        public changePasswordRequest1() {
-        }
-        
-        public changePasswordRequest1(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
-            this.changePasswordRequest = changePasswordRequest;
-        }
-    }
-    
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class infoRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class infoResponse : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class changePasswordResponse : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string infoField;
         
@@ -1726,16 +2705,16 @@ namespace SoapClient.HotelSoap {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class infoRequest1 {
+    public partial class changePasswordRequest1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.infoRequest infoRequest;
+        public SoapClient.HotelSoap.changePasswordRequest changePasswordRequest;
         
-        public infoRequest1() {
+        public changePasswordRequest1() {
         }
         
-        public infoRequest1(SoapClient.HotelSoap.infoRequest infoRequest) {
-            this.infoRequest = infoRequest;
+        public changePasswordRequest1(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
+            this.changePasswordRequest = changePasswordRequest;
         }
     }
     
@@ -1743,16 +2722,16 @@ namespace SoapClient.HotelSoap {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class infoResponse1 {
+    public partial class changePasswordResponse1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.infoResponse infoResponse;
+        public SoapClient.HotelSoap.changePasswordResponse changePasswordResponse;
         
-        public infoResponse1() {
+        public changePasswordResponse1() {
         }
         
-        public infoResponse1(SoapClient.HotelSoap.infoResponse infoResponse) {
-            this.infoResponse = infoResponse;
+        public changePasswordResponse1(SoapClient.HotelSoap.changePasswordResponse changePasswordResponse) {
+            this.changePasswordResponse = changePasswordResponse;
         }
     }
     
@@ -1762,13 +2741,237 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class addUserRequest : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class deleteReservationByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private userRequest userField;
+        private int userIdField;
+        
+        private int reservationIdField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public userRequest user {
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+                this.RaisePropertyChanged("userId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int reservationId {
+            get {
+                return this.reservationIdField;
+            }
+            set {
+                this.reservationIdField = value;
+                this.RaisePropertyChanged("reservationId");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteReservationByIdResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteReservationByIdRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteReservationByIdRequest deleteReservationByIdRequest;
+        
+        public deleteReservationByIdRequest1() {
+        }
+        
+        public deleteReservationByIdRequest1(SoapClient.HotelSoap.deleteReservationByIdRequest deleteReservationByIdRequest) {
+            this.deleteReservationByIdRequest = deleteReservationByIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteReservationByIdResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteReservationByIdResponse deleteReservationByIdResponse;
+        
+        public deleteReservationByIdResponse1() {
+        }
+        
+        public deleteReservationByIdResponse1(SoapClient.HotelSoap.deleteReservationByIdResponse deleteReservationByIdResponse) {
+            this.deleteReservationByIdResponse = deleteReservationByIdResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class updateRoomRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private roomRequest roomField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public roomRequest room {
+            get {
+                return this.roomField;
+            }
+            set {
+                this.roomField = value;
+                this.RaisePropertyChanged("room");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class updateRoomResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateRoomRequest1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.updateRoomRequest updateRoomRequest;
+        
+        public updateRoomRequest1() {
+        }
+        
+        public updateRoomRequest1(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
+            this.updateRoomRequest = updateRoomRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateRoomResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.updateRoomResponse updateRoomResponse;
+        
+        public updateRoomResponse1() {
+        }
+        
+        public updateRoomResponse1(SoapClient.HotelSoap.updateRoomResponse updateRoomResponse) {
+            this.updateRoomResponse = updateRoomResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class registerRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private userRegisterRequest userField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public userRegisterRequest user {
             get {
                 return this.userField;
             }
@@ -1788,42 +2991,25 @@ namespace SoapClient.HotelSoap {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class addUserRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.addUserRequest addUserRequest;
-        
-        public addUserRequest1() {
-        }
-        
-        public addUserRequest1(SoapClient.HotelSoap.addUserRequest addUserRequest) {
-            this.addUserRequest = addUserRequest;
-        }
-    }
-    
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class deleteRoomByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class registerResponse : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int idField;
+        private string infoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int id {
+        public string info {
             get {
-                return this.idField;
+                return this.infoField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
             }
         }
         
@@ -1841,16 +3027,33 @@ namespace SoapClient.HotelSoap {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class deleteRoomByIdRequest1 {
+    public partial class registerRequest1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest;
+        public SoapClient.HotelSoap.registerRequest registerRequest;
         
-        public deleteRoomByIdRequest1() {
+        public registerRequest1() {
         }
         
-        public deleteRoomByIdRequest1(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
-            this.deleteRoomByIdRequest = deleteRoomByIdRequest;
+        public registerRequest1(SoapClient.HotelSoap.registerRequest registerRequest) {
+            this.registerRequest = registerRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class registerResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.registerResponse registerResponse;
+        
+        public registerResponse1() {
+        }
+        
+        public registerResponse1(SoapClient.HotelSoap.registerResponse registerResponse) {
+            this.registerResponse = registerResponse;
         }
     }
     
@@ -1913,118 +3116,6 @@ namespace SoapClient.HotelSoap {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class registerRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private userRegisterRequest userField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public userRegisterRequest user {
-            get {
-                return this.userField;
-            }
-            set {
-                this.userField = value;
-                this.RaisePropertyChanged("user");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registerRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.registerRequest registerRequest;
-        
-        public registerRequest1() {
-        }
-        
-        public registerRequest1(SoapClient.HotelSoap.registerRequest registerRequest) {
-            this.registerRequest = registerRequest;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class updateRoomRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        private roomRequest roomField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public roomRequest room {
-            get {
-                return this.roomField;
-            }
-            set {
-                this.roomField = value;
-                this.RaisePropertyChanged("room");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class updateRoomRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.updateRoomRequest updateRoomRequest;
-        
-        public updateRoomRequest1() {
-        }
-        
-        public updateRoomRequest1(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
-            this.updateRoomRequest = updateRoomRequest;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
     public partial class deleteHotelByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idField;
@@ -2038,6 +3129,38 @@ namespace SoapClient.HotelSoap {
             set {
                 this.idField = value;
                 this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
+    public partial class deleteHotelByIdResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string infoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string info {
+            get {
+                return this.infoField;
+            }
+            set {
+                this.infoField = value;
+                this.RaisePropertyChanged("info");
             }
         }
         
@@ -2065,6 +3188,23 @@ namespace SoapClient.HotelSoap {
         
         public deleteHotelByIdRequest1(SoapClient.HotelSoap.deleteHotelByIdRequest deleteHotelByIdRequest) {
             this.deleteHotelByIdRequest = deleteHotelByIdRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class deleteHotelByIdResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
+        public SoapClient.HotelSoap.deleteHotelByIdResponse deleteHotelByIdResponse;
+        
+        public deleteHotelByIdResponse1() {
+        }
+        
+        public deleteHotelByIdResponse1(SoapClient.HotelSoap.deleteHotelByIdResponse deleteHotelByIdResponse) {
+            this.deleteHotelByIdResponse = deleteHotelByIdResponse;
         }
     }
     
@@ -2194,55 +3334,6 @@ namespace SoapClient.HotelSoap {
         }
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://localhost:8080")]
-    public partial class deleteUserByIdRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class deleteUserByIdRequest1 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://localhost:8080", Order=0)]
-        public SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest;
-        
-        public deleteUserByIdRequest1() {
-        }
-        
-        public deleteUserByIdRequest1(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
-            this.deleteUserByIdRequest = deleteUserByIdRequest;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface HotelsPortChannel : SoapClient.HotelSoap.HotelsPort, System.ServiceModel.IClientChannel {
     }
@@ -2317,6 +3408,29 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.findAllReservationsByUserIdResponse SoapClient.HotelSoap.HotelsPort.findAllReservationsByUserId(SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 request) {
+            return base.Channel.findAllReservationsByUserId(request);
+        }
+        
+        public SoapClient.HotelSoap.reservationResponse[] findAllReservationsByUserId(SoapClient.HotelSoap.findAllReservationsByUserIdRequest findAllReservationsByUserIdRequest) {
+            SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 inValue = new SoapClient.HotelSoap.findAllReservationsByUserIdRequest1();
+            inValue.findAllReservationsByUserIdRequest = findAllReservationsByUserIdRequest;
+            SoapClient.HotelSoap.findAllReservationsByUserIdResponse retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).findAllReservationsByUserId(inValue);
+            return retVal.findAllReservationsByUserIdResponse1;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsByUserIdResponse> SoapClient.HotelSoap.HotelsPort.findAllReservationsByUserIdAsync(SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 request) {
+            return base.Channel.findAllReservationsByUserIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsByUserIdResponse> findAllReservationsByUserIdAsync(SoapClient.HotelSoap.findAllReservationsByUserIdRequest findAllReservationsByUserIdRequest) {
+            SoapClient.HotelSoap.findAllReservationsByUserIdRequest1 inValue = new SoapClient.HotelSoap.findAllReservationsByUserIdRequest1();
+            inValue.findAllReservationsByUserIdRequest = findAllReservationsByUserIdRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).findAllReservationsByUserIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         SoapClient.HotelSoap.findAllHotelsResponse SoapClient.HotelSoap.HotelsPort.findAllHotels(SoapClient.HotelSoap.findAllHotelsRequest1 request) {
             return base.Channel.findAllHotels(request);
         }
@@ -2340,22 +3454,69 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.updateHotel(SoapClient.HotelSoap.updateHotelRequest1 request) {
-            base.Channel.updateHotel(request);
+        SoapClient.HotelSoap.addUserResponse1 SoapClient.HotelSoap.HotelsPort.addUser(SoapClient.HotelSoap.addUserRequest1 request) {
+            return base.Channel.addUser(request);
         }
         
-        public void updateHotel(SoapClient.HotelSoap.updateHotelRequest updateHotelRequest) {
-            SoapClient.HotelSoap.updateHotelRequest1 inValue = new SoapClient.HotelSoap.updateHotelRequest1();
-            inValue.updateHotelRequest = updateHotelRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).updateHotel(inValue);
+        public SoapClient.HotelSoap.addUserResponse addUser(SoapClient.HotelSoap.addUserRequest addUserRequest) {
+            SoapClient.HotelSoap.addUserRequest1 inValue = new SoapClient.HotelSoap.addUserRequest1();
+            inValue.addUserRequest = addUserRequest;
+            SoapClient.HotelSoap.addUserResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).addUser(inValue);
+            return retVal.addUserResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest1 request) {
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addUserResponse1> SoapClient.HotelSoap.HotelsPort.addUserAsync(SoapClient.HotelSoap.addUserRequest1 request) {
+            return base.Channel.addUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.addUserResponse1> addUserAsync(SoapClient.HotelSoap.addUserRequest addUserRequest) {
+            SoapClient.HotelSoap.addUserRequest1 inValue = new SoapClient.HotelSoap.addUserRequest1();
+            inValue.addUserRequest = addUserRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).addUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.updateUserResponse1 SoapClient.HotelSoap.HotelsPort.updateUser(SoapClient.HotelSoap.updateUserRequest1 request) {
+            return base.Channel.updateUser(request);
+        }
+        
+        public SoapClient.HotelSoap.updateUserResponse updateUser(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
+            SoapClient.HotelSoap.updateUserRequest1 inValue = new SoapClient.HotelSoap.updateUserRequest1();
+            inValue.updateUserRequest = updateUserRequest;
+            SoapClient.HotelSoap.updateUserResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).updateUser(inValue);
+            return retVal.updateUserResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateUserResponse1> SoapClient.HotelSoap.HotelsPort.updateUserAsync(SoapClient.HotelSoap.updateUserRequest1 request) {
+            return base.Channel.updateUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.updateUserResponse1> updateUserAsync(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
+            SoapClient.HotelSoap.updateUserRequest1 inValue = new SoapClient.HotelSoap.updateUserRequest1();
+            inValue.updateUserRequest = updateUserRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).updateUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.updateHotelResponse1 SoapClient.HotelSoap.HotelsPort.updateHotel(SoapClient.HotelSoap.updateHotelRequest1 request) {
+            return base.Channel.updateHotel(request);
+        }
+        
+        public SoapClient.HotelSoap.updateHotelResponse updateHotel(SoapClient.HotelSoap.updateHotelRequest updateHotelRequest) {
+            SoapClient.HotelSoap.updateHotelRequest1 inValue = new SoapClient.HotelSoap.updateHotelRequest1();
+            inValue.updateHotelRequest = updateHotelRequest;
+            SoapClient.HotelSoap.updateHotelResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).updateHotel(inValue);
+            return retVal.updateHotelResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateHotelResponse1> SoapClient.HotelSoap.HotelsPort.updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest1 request) {
             return base.Channel.updateHotelAsync(request);
         }
         
-        public System.Threading.Tasks.Task updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest updateHotelRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.updateHotelResponse1> updateHotelAsync(SoapClient.HotelSoap.updateHotelRequest updateHotelRequest) {
             SoapClient.HotelSoap.updateHotelRequest1 inValue = new SoapClient.HotelSoap.updateHotelRequest1();
             inValue.updateHotelRequest = updateHotelRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).updateHotelAsync(inValue);
@@ -2385,25 +3546,49 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.addHotel(SoapClient.HotelSoap.addHotelRequest1 request) {
-            base.Channel.addHotel(request);
+        SoapClient.HotelSoap.addHotelResponse1 SoapClient.HotelSoap.HotelsPort.addHotel(SoapClient.HotelSoap.addHotelRequest1 request) {
+            return base.Channel.addHotel(request);
         }
         
-        public void addHotel(SoapClient.HotelSoap.addHotelRequest addHotelRequest) {
+        public SoapClient.HotelSoap.addHotelResponse addHotel(SoapClient.HotelSoap.addHotelRequest addHotelRequest) {
             SoapClient.HotelSoap.addHotelRequest1 inValue = new SoapClient.HotelSoap.addHotelRequest1();
             inValue.addHotelRequest = addHotelRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).addHotel(inValue);
+            SoapClient.HotelSoap.addHotelResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).addHotel(inValue);
+            return retVal.addHotelResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.addHotelAsync(SoapClient.HotelSoap.addHotelRequest1 request) {
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addHotelResponse1> SoapClient.HotelSoap.HotelsPort.addHotelAsync(SoapClient.HotelSoap.addHotelRequest1 request) {
             return base.Channel.addHotelAsync(request);
         }
         
-        public System.Threading.Tasks.Task addHotelAsync(SoapClient.HotelSoap.addHotelRequest addHotelRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.addHotelResponse1> addHotelAsync(SoapClient.HotelSoap.addHotelRequest addHotelRequest) {
             SoapClient.HotelSoap.addHotelRequest1 inValue = new SoapClient.HotelSoap.addHotelRequest1();
             inValue.addHotelRequest = addHotelRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).addHotelAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.deleteRoomByIdResponse1 SoapClient.HotelSoap.HotelsPort.deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest1 request) {
+            return base.Channel.deleteRoomById(request);
+        }
+        
+        public SoapClient.HotelSoap.deleteRoomByIdResponse deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
+            SoapClient.HotelSoap.deleteRoomByIdRequest1 inValue = new SoapClient.HotelSoap.deleteRoomByIdRequest1();
+            inValue.deleteRoomByIdRequest = deleteRoomByIdRequest;
+            SoapClient.HotelSoap.deleteRoomByIdResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).deleteRoomById(inValue);
+            return retVal.deleteRoomByIdResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteRoomByIdResponse1> SoapClient.HotelSoap.HotelsPort.deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest1 request) {
+            return base.Channel.deleteRoomByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteRoomByIdResponse1> deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
+            SoapClient.HotelSoap.deleteRoomByIdRequest1 inValue = new SoapClient.HotelSoap.deleteRoomByIdRequest1();
+            inValue.deleteRoomByIdRequest = deleteRoomByIdRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteRoomByIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2430,47 +3615,118 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.updateUser(SoapClient.HotelSoap.updateUserRequest1 request) {
-            base.Channel.updateUser(request);
+        SoapClient.HotelSoap.addReservationResponse1 SoapClient.HotelSoap.HotelsPort.addReservation(SoapClient.HotelSoap.addReservationRequest1 request) {
+            return base.Channel.addReservation(request);
         }
         
-        public void updateUser(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
-            SoapClient.HotelSoap.updateUserRequest1 inValue = new SoapClient.HotelSoap.updateUserRequest1();
-            inValue.updateUserRequest = updateUserRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).updateUser(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.updateUserAsync(SoapClient.HotelSoap.updateUserRequest1 request) {
-            return base.Channel.updateUserAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task updateUserAsync(SoapClient.HotelSoap.updateUserRequest updateUserRequest) {
-            SoapClient.HotelSoap.updateUserRequest1 inValue = new SoapClient.HotelSoap.updateUserRequest1();
-            inValue.updateUserRequest = updateUserRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).updateUserAsync(inValue);
+        public SoapClient.HotelSoap.addReservationResponse addReservation(SoapClient.HotelSoap.addReservationRequest addReservationRequest) {
+            SoapClient.HotelSoap.addReservationRequest1 inValue = new SoapClient.HotelSoap.addReservationRequest1();
+            inValue.addReservationRequest = addReservationRequest;
+            SoapClient.HotelSoap.addReservationResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).addReservation(inValue);
+            return retVal.addReservationResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.addRoom(SoapClient.HotelSoap.addRoomRequest1 request) {
-            base.Channel.addRoom(request);
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addReservationResponse1> SoapClient.HotelSoap.HotelsPort.addReservationAsync(SoapClient.HotelSoap.addReservationRequest1 request) {
+            return base.Channel.addReservationAsync(request);
         }
         
-        public void addRoom(SoapClient.HotelSoap.addRoomRequest addRoomRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.addReservationResponse1> addReservationAsync(SoapClient.HotelSoap.addReservationRequest addReservationRequest) {
+            SoapClient.HotelSoap.addReservationRequest1 inValue = new SoapClient.HotelSoap.addReservationRequest1();
+            inValue.addReservationRequest = addReservationRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).addReservationAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.addRoomResponse1 SoapClient.HotelSoap.HotelsPort.addRoom(SoapClient.HotelSoap.addRoomRequest1 request) {
+            return base.Channel.addRoom(request);
+        }
+        
+        public SoapClient.HotelSoap.addRoomResponse addRoom(SoapClient.HotelSoap.addRoomRequest addRoomRequest) {
             SoapClient.HotelSoap.addRoomRequest1 inValue = new SoapClient.HotelSoap.addRoomRequest1();
             inValue.addRoomRequest = addRoomRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).addRoom(inValue);
+            SoapClient.HotelSoap.addRoomResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).addRoom(inValue);
+            return retVal.addRoomResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.addRoomAsync(SoapClient.HotelSoap.addRoomRequest1 request) {
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.addRoomResponse1> SoapClient.HotelSoap.HotelsPort.addRoomAsync(SoapClient.HotelSoap.addRoomRequest1 request) {
             return base.Channel.addRoomAsync(request);
         }
         
-        public System.Threading.Tasks.Task addRoomAsync(SoapClient.HotelSoap.addRoomRequest addRoomRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.addRoomResponse1> addRoomAsync(SoapClient.HotelSoap.addRoomRequest addRoomRequest) {
             SoapClient.HotelSoap.addRoomRequest1 inValue = new SoapClient.HotelSoap.addRoomRequest1();
             inValue.addRoomRequest = addRoomRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).addRoomAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.deleteUserByIdResponse1 SoapClient.HotelSoap.HotelsPort.deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest1 request) {
+            return base.Channel.deleteUserById(request);
+        }
+        
+        public SoapClient.HotelSoap.deleteUserByIdResponse deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
+            SoapClient.HotelSoap.deleteUserByIdRequest1 inValue = new SoapClient.HotelSoap.deleteUserByIdRequest1();
+            inValue.deleteUserByIdRequest = deleteUserByIdRequest;
+            SoapClient.HotelSoap.deleteUserByIdResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).deleteUserById(inValue);
+            return retVal.deleteUserByIdResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteUserByIdResponse1> SoapClient.HotelSoap.HotelsPort.deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest1 request) {
+            return base.Channel.deleteUserByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteUserByIdResponse1> deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
+            SoapClient.HotelSoap.deleteUserByIdRequest1 inValue = new SoapClient.HotelSoap.deleteUserByIdRequest1();
+            inValue.deleteUserByIdRequest = deleteUserByIdRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteUserByIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.findAllReservationsResponse SoapClient.HotelSoap.HotelsPort.findAllReservations(SoapClient.HotelSoap.findAllReservationsRequest1 request) {
+            return base.Channel.findAllReservations(request);
+        }
+        
+        public SoapClient.HotelSoap.reservationResponse[] findAllReservations(SoapClient.HotelSoap.findAllReservationsRequest findAllReservationsRequest) {
+            SoapClient.HotelSoap.findAllReservationsRequest1 inValue = new SoapClient.HotelSoap.findAllReservationsRequest1();
+            inValue.findAllReservationsRequest = findAllReservationsRequest;
+            SoapClient.HotelSoap.findAllReservationsResponse retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).findAllReservations(inValue);
+            return retVal.findAllReservationsResponse1;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsResponse> SoapClient.HotelSoap.HotelsPort.findAllReservationsAsync(SoapClient.HotelSoap.findAllReservationsRequest1 request) {
+            return base.Channel.findAllReservationsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.findAllReservationsResponse> findAllReservationsAsync(SoapClient.HotelSoap.findAllReservationsRequest findAllReservationsRequest) {
+            SoapClient.HotelSoap.findAllReservationsRequest1 inValue = new SoapClient.HotelSoap.findAllReservationsRequest1();
+            inValue.findAllReservationsRequest = findAllReservationsRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).findAllReservationsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.findReservationByIdResponse1 SoapClient.HotelSoap.HotelsPort.findReservationById(SoapClient.HotelSoap.findReservationByIdRequest1 request) {
+            return base.Channel.findReservationById(request);
+        }
+        
+        public SoapClient.HotelSoap.findReservationByIdResponse findReservationById(SoapClient.HotelSoap.findReservationByIdRequest findReservationByIdRequest) {
+            SoapClient.HotelSoap.findReservationByIdRequest1 inValue = new SoapClient.HotelSoap.findReservationByIdRequest1();
+            inValue.findReservationByIdRequest = findReservationByIdRequest;
+            SoapClient.HotelSoap.findReservationByIdResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).findReservationById(inValue);
+            return retVal.findReservationByIdResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.findReservationByIdResponse1> SoapClient.HotelSoap.HotelsPort.findReservationByIdAsync(SoapClient.HotelSoap.findReservationByIdRequest1 request) {
+            return base.Channel.findReservationByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.findReservationByIdResponse1> findReservationByIdAsync(SoapClient.HotelSoap.findReservationByIdRequest findReservationByIdRequest) {
+            SoapClient.HotelSoap.findReservationByIdRequest1 inValue = new SoapClient.HotelSoap.findReservationByIdRequest1();
+            inValue.findReservationByIdRequest = findReservationByIdRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).findReservationByIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2497,92 +3753,95 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.changePassword(SoapClient.HotelSoap.changePasswordRequest1 request) {
-            base.Channel.changePassword(request);
+        SoapClient.HotelSoap.changePasswordResponse1 SoapClient.HotelSoap.HotelsPort.changePassword(SoapClient.HotelSoap.changePasswordRequest1 request) {
+            return base.Channel.changePassword(request);
         }
         
-        public void changePassword(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
+        public SoapClient.HotelSoap.changePasswordResponse changePassword(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
             SoapClient.HotelSoap.changePasswordRequest1 inValue = new SoapClient.HotelSoap.changePasswordRequest1();
             inValue.changePasswordRequest = changePasswordRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).changePassword(inValue);
+            SoapClient.HotelSoap.changePasswordResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).changePassword(inValue);
+            return retVal.changePasswordResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest1 request) {
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.changePasswordResponse1> SoapClient.HotelSoap.HotelsPort.changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest1 request) {
             return base.Channel.changePasswordAsync(request);
         }
         
-        public System.Threading.Tasks.Task changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.changePasswordResponse1> changePasswordAsync(SoapClient.HotelSoap.changePasswordRequest changePasswordRequest) {
             SoapClient.HotelSoap.changePasswordRequest1 inValue = new SoapClient.HotelSoap.changePasswordRequest1();
             inValue.changePasswordRequest = changePasswordRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).changePasswordAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SoapClient.HotelSoap.infoResponse1 SoapClient.HotelSoap.HotelsPort.info(SoapClient.HotelSoap.infoRequest1 request) {
-            return base.Channel.info(request);
+        SoapClient.HotelSoap.deleteReservationByIdResponse1 SoapClient.HotelSoap.HotelsPort.deleteReservationById(SoapClient.HotelSoap.deleteReservationByIdRequest1 request) {
+            return base.Channel.deleteReservationById(request);
         }
         
-        public SoapClient.HotelSoap.infoResponse info(SoapClient.HotelSoap.infoRequest infoRequest) {
-            SoapClient.HotelSoap.infoRequest1 inValue = new SoapClient.HotelSoap.infoRequest1();
-            inValue.infoRequest = infoRequest;
-            SoapClient.HotelSoap.infoResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).info(inValue);
-            return retVal.infoResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SoapClient.HotelSoap.infoResponse1> SoapClient.HotelSoap.HotelsPort.infoAsync(SoapClient.HotelSoap.infoRequest1 request) {
-            return base.Channel.infoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SoapClient.HotelSoap.infoResponse1> infoAsync(SoapClient.HotelSoap.infoRequest infoRequest) {
-            SoapClient.HotelSoap.infoRequest1 inValue = new SoapClient.HotelSoap.infoRequest1();
-            inValue.infoRequest = infoRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).infoAsync(inValue);
+        public SoapClient.HotelSoap.deleteReservationByIdResponse deleteReservationById(SoapClient.HotelSoap.deleteReservationByIdRequest deleteReservationByIdRequest) {
+            SoapClient.HotelSoap.deleteReservationByIdRequest1 inValue = new SoapClient.HotelSoap.deleteReservationByIdRequest1();
+            inValue.deleteReservationByIdRequest = deleteReservationByIdRequest;
+            SoapClient.HotelSoap.deleteReservationByIdResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).deleteReservationById(inValue);
+            return retVal.deleteReservationByIdResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.addUser(SoapClient.HotelSoap.addUserRequest1 request) {
-            base.Channel.addUser(request);
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteReservationByIdResponse1> SoapClient.HotelSoap.HotelsPort.deleteReservationByIdAsync(SoapClient.HotelSoap.deleteReservationByIdRequest1 request) {
+            return base.Channel.deleteReservationByIdAsync(request);
         }
         
-        public void addUser(SoapClient.HotelSoap.addUserRequest addUserRequest) {
-            SoapClient.HotelSoap.addUserRequest1 inValue = new SoapClient.HotelSoap.addUserRequest1();
-            inValue.addUserRequest = addUserRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).addUser(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.addUserAsync(SoapClient.HotelSoap.addUserRequest1 request) {
-            return base.Channel.addUserAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task addUserAsync(SoapClient.HotelSoap.addUserRequest addUserRequest) {
-            SoapClient.HotelSoap.addUserRequest1 inValue = new SoapClient.HotelSoap.addUserRequest1();
-            inValue.addUserRequest = addUserRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).addUserAsync(inValue);
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteReservationByIdResponse1> deleteReservationByIdAsync(SoapClient.HotelSoap.deleteReservationByIdRequest deleteReservationByIdRequest) {
+            SoapClient.HotelSoap.deleteReservationByIdRequest1 inValue = new SoapClient.HotelSoap.deleteReservationByIdRequest1();
+            inValue.deleteReservationByIdRequest = deleteReservationByIdRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteReservationByIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest1 request) {
-            base.Channel.deleteRoomById(request);
+        SoapClient.HotelSoap.updateRoomResponse1 SoapClient.HotelSoap.HotelsPort.updateRoom(SoapClient.HotelSoap.updateRoomRequest1 request) {
+            return base.Channel.updateRoom(request);
         }
         
-        public void deleteRoomById(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
-            SoapClient.HotelSoap.deleteRoomByIdRequest1 inValue = new SoapClient.HotelSoap.deleteRoomByIdRequest1();
-            inValue.deleteRoomByIdRequest = deleteRoomByIdRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).deleteRoomById(inValue);
+        public SoapClient.HotelSoap.updateRoomResponse updateRoom(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
+            SoapClient.HotelSoap.updateRoomRequest1 inValue = new SoapClient.HotelSoap.updateRoomRequest1();
+            inValue.updateRoomRequest = updateRoomRequest;
+            SoapClient.HotelSoap.updateRoomResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).updateRoom(inValue);
+            return retVal.updateRoomResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest1 request) {
-            return base.Channel.deleteRoomByIdAsync(request);
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.updateRoomResponse1> SoapClient.HotelSoap.HotelsPort.updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest1 request) {
+            return base.Channel.updateRoomAsync(request);
         }
         
-        public System.Threading.Tasks.Task deleteRoomByIdAsync(SoapClient.HotelSoap.deleteRoomByIdRequest deleteRoomByIdRequest) {
-            SoapClient.HotelSoap.deleteRoomByIdRequest1 inValue = new SoapClient.HotelSoap.deleteRoomByIdRequest1();
-            inValue.deleteRoomByIdRequest = deleteRoomByIdRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteRoomByIdAsync(inValue);
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.updateRoomResponse1> updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
+            SoapClient.HotelSoap.updateRoomRequest1 inValue = new SoapClient.HotelSoap.updateRoomRequest1();
+            inValue.updateRoomRequest = updateRoomRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).updateRoomAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SoapClient.HotelSoap.registerResponse1 SoapClient.HotelSoap.HotelsPort.register(SoapClient.HotelSoap.registerRequest1 request) {
+            return base.Channel.register(request);
+        }
+        
+        public SoapClient.HotelSoap.registerResponse register(SoapClient.HotelSoap.registerRequest registerRequest) {
+            SoapClient.HotelSoap.registerRequest1 inValue = new SoapClient.HotelSoap.registerRequest1();
+            inValue.registerRequest = registerRequest;
+            SoapClient.HotelSoap.registerResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).register(inValue);
+            return retVal.registerResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.registerResponse1> SoapClient.HotelSoap.HotelsPort.registerAsync(SoapClient.HotelSoap.registerRequest1 request) {
+            return base.Channel.registerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.registerResponse1> registerAsync(SoapClient.HotelSoap.registerRequest registerRequest) {
+            SoapClient.HotelSoap.registerRequest1 inValue = new SoapClient.HotelSoap.registerRequest1();
+            inValue.registerRequest = registerRequest;
+            return ((SoapClient.HotelSoap.HotelsPort)(this)).registerAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2609,66 +3868,23 @@ namespace SoapClient.HotelSoap {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.register(SoapClient.HotelSoap.registerRequest1 request) {
-            base.Channel.register(request);
+        SoapClient.HotelSoap.deleteHotelByIdResponse1 SoapClient.HotelSoap.HotelsPort.deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest1 request) {
+            return base.Channel.deleteHotelById(request);
         }
         
-        public void register(SoapClient.HotelSoap.registerRequest registerRequest) {
-            SoapClient.HotelSoap.registerRequest1 inValue = new SoapClient.HotelSoap.registerRequest1();
-            inValue.registerRequest = registerRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).register(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.registerAsync(SoapClient.HotelSoap.registerRequest1 request) {
-            return base.Channel.registerAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task registerAsync(SoapClient.HotelSoap.registerRequest registerRequest) {
-            SoapClient.HotelSoap.registerRequest1 inValue = new SoapClient.HotelSoap.registerRequest1();
-            inValue.registerRequest = registerRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).registerAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.updateRoom(SoapClient.HotelSoap.updateRoomRequest1 request) {
-            base.Channel.updateRoom(request);
-        }
-        
-        public void updateRoom(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
-            SoapClient.HotelSoap.updateRoomRequest1 inValue = new SoapClient.HotelSoap.updateRoomRequest1();
-            inValue.updateRoomRequest = updateRoomRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).updateRoom(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest1 request) {
-            return base.Channel.updateRoomAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task updateRoomAsync(SoapClient.HotelSoap.updateRoomRequest updateRoomRequest) {
-            SoapClient.HotelSoap.updateRoomRequest1 inValue = new SoapClient.HotelSoap.updateRoomRequest1();
-            inValue.updateRoomRequest = updateRoomRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).updateRoomAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest1 request) {
-            base.Channel.deleteHotelById(request);
-        }
-        
-        public void deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest deleteHotelByIdRequest) {
+        public SoapClient.HotelSoap.deleteHotelByIdResponse deleteHotelById(SoapClient.HotelSoap.deleteHotelByIdRequest deleteHotelByIdRequest) {
             SoapClient.HotelSoap.deleteHotelByIdRequest1 inValue = new SoapClient.HotelSoap.deleteHotelByIdRequest1();
             inValue.deleteHotelByIdRequest = deleteHotelByIdRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).deleteHotelById(inValue);
+            SoapClient.HotelSoap.deleteHotelByIdResponse1 retVal = ((SoapClient.HotelSoap.HotelsPort)(this)).deleteHotelById(inValue);
+            return retVal.deleteHotelByIdResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest1 request) {
+        System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteHotelByIdResponse1> SoapClient.HotelSoap.HotelsPort.deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest1 request) {
             return base.Channel.deleteHotelByIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest deleteHotelByIdRequest) {
+        public System.Threading.Tasks.Task<SoapClient.HotelSoap.deleteHotelByIdResponse1> deleteHotelByIdAsync(SoapClient.HotelSoap.deleteHotelByIdRequest deleteHotelByIdRequest) {
             SoapClient.HotelSoap.deleteHotelByIdRequest1 inValue = new SoapClient.HotelSoap.deleteHotelByIdRequest1();
             inValue.deleteHotelByIdRequest = deleteHotelByIdRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteHotelByIdAsync(inValue);
@@ -2695,28 +3911,6 @@ namespace SoapClient.HotelSoap {
             SoapClient.HotelSoap.loginRequest1 inValue = new SoapClient.HotelSoap.loginRequest1();
             inValue.loginRequest = loginRequest;
             return ((SoapClient.HotelSoap.HotelsPort)(this)).loginAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SoapClient.HotelSoap.HotelsPort.deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest1 request) {
-            base.Channel.deleteUserById(request);
-        }
-        
-        public void deleteUserById(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
-            SoapClient.HotelSoap.deleteUserByIdRequest1 inValue = new SoapClient.HotelSoap.deleteUserByIdRequest1();
-            inValue.deleteUserByIdRequest = deleteUserByIdRequest;
-            ((SoapClient.HotelSoap.HotelsPort)(this)).deleteUserById(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task SoapClient.HotelSoap.HotelsPort.deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest1 request) {
-            return base.Channel.deleteUserByIdAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task deleteUserByIdAsync(SoapClient.HotelSoap.deleteUserByIdRequest deleteUserByIdRequest) {
-            SoapClient.HotelSoap.deleteUserByIdRequest1 inValue = new SoapClient.HotelSoap.deleteUserByIdRequest1();
-            inValue.deleteUserByIdRequest = deleteUserByIdRequest;
-            return ((SoapClient.HotelSoap.HotelsPort)(this)).deleteUserByIdAsync(inValue);
         }
     }
 }

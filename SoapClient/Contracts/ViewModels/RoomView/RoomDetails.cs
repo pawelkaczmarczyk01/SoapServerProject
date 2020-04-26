@@ -26,6 +26,7 @@ namespace Contracts.ViewModels.RoomView
 
         public RoomDetails(
             int roomId, 
+            int hotelId,
             string name, 
             string description, 
             byte[] imageData, 
@@ -38,6 +39,7 @@ namespace Contracts.ViewModels.RoomView
             bool isTv)
         {
             RoomId = roomId;
+            HotelId = hotelId;
             Name = name;
             Description = description;
             Image = LoadImage(imageData);

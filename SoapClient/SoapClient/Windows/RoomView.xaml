@@ -10,14 +10,13 @@
         <Grid>
             <Menu Height="40" HorizontalAlignment="Left" Name="MenuData" VerticalAlignment="Top" Width="auto">
                 <MenuItem Header="Menu" Height="40" Width="auto">
-                    <Label MouseDown="ShowYourReservations">
+                    <Label MouseDown="Logout">
                         <Label.Content>
                             <AccessText Text="{Binding Path=Login, StringFormat=Wyloguj: {0}}" TextAlignment="Center"/>
                         </Label.Content>
                     </Label>
                 </MenuItem>
-                <MenuItem MouseDown="GoBack" Header="Wróć" Height="40" Width="auto"/>
-                <!--<MenuItem Header="Odśwież" Height="40" Width="auto" MouseDown="Refresh"/>-->
+                <MenuItem PreviewMouseDown="GoBack" Header="Wróć" Height="40" Width="auto"/>
             </Menu>
             <Button Name="ButtonData" Style="{DynamicResource MaterialDesignRaisedDarkButton}" FontSize="15" MinWidth="40" Height="Auto" Click="Logout" Margin="987,10,15,914">
                 <Button.Content>

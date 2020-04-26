@@ -2,22 +2,17 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://localhost:8080" xmlns:tns="http://localhost:8080" targetNamespace="http://localhost:8080" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost:8080" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="infoRequest">
-        <xs:complexType>
-          <xs:sequence />
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="infoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="info" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="addHotelRequest">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="hotel" type="tns:hotelRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addHotelResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -29,10 +24,24 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="updateHotelResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deleteHotelByIdRequest">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteHotelByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -82,6 +91,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="addUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="updateUserRequest">
         <xs:complexType>
           <xs:sequence>
@@ -90,10 +106,24 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="updateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deleteUserByIdRequest">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteUserByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -162,6 +192,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="registerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="changePasswordRequest">
         <xs:complexType>
           <xs:sequence>
@@ -169,6 +206,13 @@
             <xs:element name="oldPassword" type="xs:string" />
             <xs:element name="newPassword" type="xs:string" />
             <xs:element name="confirmPassword" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changePasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -188,6 +232,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="addRoomResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="updateRoomRequest">
         <xs:complexType>
           <xs:sequence>
@@ -196,10 +247,24 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="updateRoomResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deleteRoomByIdRequest">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteRoomByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -275,6 +340,93 @@
           <xs:element name="roomTv" type="xs:boolean" />
         </xs:sequence>
       </xs:complexType>
+      <xs:element name="addReservationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reservation" type="tns:reservationRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addReservationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteReservationByIdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="userId" type="xs:int" />
+            <xs:element name="reservationId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteReservationByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findReservationByIdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="userId" type="xs:int" />
+            <xs:element name="reservationId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findReservationByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reservation" type="tns:reservationResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findAllReservationsRequest">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findAllReservationsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="reservationList" type="tns:reservationResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findAllReservationsByUserIdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="userId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findAllReservationsByUserIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="reservationList" type="tns:reservationResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="reservationRequest">
+        <xs:sequence>
+          <xs:element name="roomId" type="xs:int" />
+          <xs:element name="userId" type="xs:int" />
+          <xs:element name="roomReservationFrom" type="xs:date" />
+          <xs:element name="roomReservationTo" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reservationResponse">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" />
+          <xs:element name="roomId" type="xs:int" />
+          <xs:element name="userId" type="xs:int" />
+          <xs:element name="roomReservationFrom" type="xs:date" />
+          <xs:element name="roomReservationTo" type="xs:date" />
+        </xs:sequence>
+      </xs:complexType>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="findUserByIdResponse">
@@ -283,8 +435,17 @@
   <wsdl:message name="findAllRoomsByHotelIdRequest">
     <wsdl:part name="findAllRoomsByHotelIdRequest" element="tns:findAllRoomsByHotelIdRequest" />
   </wsdl:message>
+  <wsdl:message name="findAllReservationsByUserIdResponse">
+    <wsdl:part name="findAllReservationsByUserIdResponse" element="tns:findAllReservationsByUserIdResponse" />
+  </wsdl:message>
   <wsdl:message name="findAllHotelsRequest">
     <wsdl:part name="findAllHotelsRequest" element="tns:findAllHotelsRequest" />
+  </wsdl:message>
+  <wsdl:message name="addUserResponse">
+    <wsdl:part name="addUserResponse" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part name="updateUserResponse" element="tns:updateUserResponse" />
   </wsdl:message>
   <wsdl:message name="updateHotelRequest">
     <wsdl:part name="updateHotelRequest" element="tns:updateHotelRequest" />
@@ -298,8 +459,14 @@
   <wsdl:message name="addHotelRequest">
     <wsdl:part name="addHotelRequest" element="tns:addHotelRequest" />
   </wsdl:message>
+  <wsdl:message name="deleteRoomByIdResponse">
+    <wsdl:part name="deleteRoomByIdResponse" element="tns:deleteRoomByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="findAllRoomsResponse">
     <wsdl:part name="findAllRoomsResponse" element="tns:findAllRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="addReservationResponse">
+    <wsdl:part name="addReservationResponse" element="tns:addReservationResponse" />
   </wsdl:message>
   <wsdl:message name="updateUserRequest">
     <wsdl:part name="updateUserRequest" element="tns:updateUserRequest" />
@@ -307,23 +474,50 @@
   <wsdl:message name="addRoomRequest">
     <wsdl:part name="addRoomRequest" element="tns:addRoomRequest" />
   </wsdl:message>
+  <wsdl:message name="addReservationRequest">
+    <wsdl:part name="addReservationRequest" element="tns:addReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserByIdResponse">
+    <wsdl:part name="deleteUserByIdResponse" element="tns:deleteUserByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="findAllRoomsRequest">
     <wsdl:part name="findAllRoomsRequest" element="tns:findAllRoomsRequest" />
+  </wsdl:message>
+  <wsdl:message name="findAllReservationsResponse">
+    <wsdl:part name="findAllReservationsResponse" element="tns:findAllReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="findReservationByIdRequest">
+    <wsdl:part name="findReservationByIdRequest" element="tns:findReservationByIdRequest" />
   </wsdl:message>
   <wsdl:message name="findHotelByIdRequest">
     <wsdl:part name="findHotelByIdRequest" element="tns:findHotelByIdRequest" />
   </wsdl:message>
+  <wsdl:message name="changePasswordResponse">
+    <wsdl:part name="changePasswordResponse" element="tns:changePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteReservationByIdRequest">
+    <wsdl:part name="deleteReservationByIdRequest" element="tns:deleteReservationByIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateRoomResponse">
+    <wsdl:part name="updateRoomResponse" element="tns:updateRoomResponse" />
+  </wsdl:message>
   <wsdl:message name="changePasswordRequest">
     <wsdl:part name="changePasswordRequest" element="tns:changePasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="findReservationByIdResponse">
+    <wsdl:part name="findReservationByIdResponse" element="tns:findReservationByIdResponse" />
   </wsdl:message>
   <wsdl:message name="findRoomByIdRequest">
     <wsdl:part name="findRoomByIdRequest" element="tns:findRoomByIdRequest" />
   </wsdl:message>
-  <wsdl:message name="infoRequest">
-    <wsdl:part name="infoRequest" element="tns:infoRequest" />
-  </wsdl:message>
   <wsdl:message name="addUserRequest">
     <wsdl:part name="addUserRequest" element="tns:addUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteReservationByIdResponse">
+    <wsdl:part name="deleteReservationByIdResponse" element="tns:deleteReservationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerResponse">
+    <wsdl:part name="registerResponse" element="tns:registerResponse" />
   </wsdl:message>
   <wsdl:message name="deleteRoomByIdRequest">
     <wsdl:part name="deleteRoomByIdRequest" element="tns:deleteRoomByIdRequest" />
@@ -334,6 +528,12 @@
   <wsdl:message name="registerRequest">
     <wsdl:part name="registerRequest" element="tns:registerRequest" />
   </wsdl:message>
+  <wsdl:message name="addHotelResponse">
+    <wsdl:part name="addHotelResponse" element="tns:addHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteHotelByIdResponse">
+    <wsdl:part name="deleteHotelByIdResponse" element="tns:deleteHotelByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="findUserByIdRequest">
     <wsdl:part name="findUserByIdRequest" element="tns:findUserByIdRequest" />
   </wsdl:message>
@@ -342,6 +542,9 @@
   </wsdl:message>
   <wsdl:message name="findAllRoomsByHotelIdResponse">
     <wsdl:part name="findAllRoomsByHotelIdResponse" element="tns:findAllRoomsByHotelIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllReservationsByUserIdRequest">
+    <wsdl:part name="findAllReservationsByUserIdRequest" element="tns:findAllReservationsByUserIdRequest" />
   </wsdl:message>
   <wsdl:message name="updateRoomRequest">
     <wsdl:part name="updateRoomRequest" element="tns:updateRoomRequest" />
@@ -352,14 +555,20 @@
   <wsdl:message name="loginRequest">
     <wsdl:part name="loginRequest" element="tns:loginRequest" />
   </wsdl:message>
+  <wsdl:message name="updateHotelResponse">
+    <wsdl:part name="updateHotelResponse" element="tns:updateHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAllReservationsRequest">
+    <wsdl:part name="findAllReservationsRequest" element="tns:findAllReservationsRequest" />
+  </wsdl:message>
   <wsdl:message name="deleteUserByIdRequest">
     <wsdl:part name="deleteUserByIdRequest" element="tns:deleteUserByIdRequest" />
   </wsdl:message>
   <wsdl:message name="loginResponse">
     <wsdl:part name="loginResponse" element="tns:loginResponse" />
   </wsdl:message>
-  <wsdl:message name="infoResponse">
-    <wsdl:part name="infoResponse" element="tns:infoResponse" />
+  <wsdl:message name="addRoomResponse">
+    <wsdl:part name="addRoomResponse" element="tns:addRoomResponse" />
   </wsdl:message>
   <wsdl:message name="findHotelByIdResponse">
     <wsdl:part name="findHotelByIdResponse" element="tns:findHotelByIdResponse" />
@@ -373,12 +582,25 @@
       <wsdl:input name="findAllRoomsByHotelIdRequest" message="tns:findAllRoomsByHotelIdRequest" />
       <wsdl:output name="findAllRoomsByHotelIdResponse" message="tns:findAllRoomsByHotelIdResponse" />
     </wsdl:operation>
+    <wsdl:operation name="findAllReservationsByUserId">
+      <wsdl:input name="findAllReservationsByUserIdRequest" message="tns:findAllReservationsByUserIdRequest" />
+      <wsdl:output name="findAllReservationsByUserIdResponse" message="tns:findAllReservationsByUserIdResponse" />
+    </wsdl:operation>
     <wsdl:operation name="findAllHotels">
       <wsdl:input name="findAllHotelsRequest" message="tns:findAllHotelsRequest" />
       <wsdl:output name="findAllHotelsResponse" message="tns:findAllHotelsResponse" />
     </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input name="addUserRequest" message="tns:addUserRequest" />
+      <wsdl:output name="addUserResponse" message="tns:addUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input name="updateUserRequest" message="tns:updateUserRequest" />
+      <wsdl:output name="updateUserResponse" message="tns:updateUserResponse" />
+    </wsdl:operation>
     <wsdl:operation name="updateHotel">
       <wsdl:input name="updateHotelRequest" message="tns:updateHotelRequest" />
+      <wsdl:output name="updateHotelResponse" message="tns:updateHotelResponse" />
     </wsdl:operation>
     <wsdl:operation name="findRoomById">
       <wsdl:input name="findRoomByIdRequest" message="tns:findRoomByIdRequest" />
@@ -386,16 +608,35 @@
     </wsdl:operation>
     <wsdl:operation name="addHotel">
       <wsdl:input name="addHotelRequest" message="tns:addHotelRequest" />
+      <wsdl:output name="addHotelResponse" message="tns:addHotelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRoomById">
+      <wsdl:input name="deleteRoomByIdRequest" message="tns:deleteRoomByIdRequest" />
+      <wsdl:output name="deleteRoomByIdResponse" message="tns:deleteRoomByIdResponse" />
     </wsdl:operation>
     <wsdl:operation name="findAllRooms">
       <wsdl:input name="findAllRoomsRequest" message="tns:findAllRoomsRequest" />
       <wsdl:output name="findAllRoomsResponse" message="tns:findAllRoomsResponse" />
     </wsdl:operation>
-    <wsdl:operation name="updateUser">
-      <wsdl:input name="updateUserRequest" message="tns:updateUserRequest" />
+    <wsdl:operation name="addReservation">
+      <wsdl:input name="addReservationRequest" message="tns:addReservationRequest" />
+      <wsdl:output name="addReservationResponse" message="tns:addReservationResponse" />
     </wsdl:operation>
     <wsdl:operation name="addRoom">
       <wsdl:input name="addRoomRequest" message="tns:addRoomRequest" />
+      <wsdl:output name="addRoomResponse" message="tns:addRoomResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUserById">
+      <wsdl:input name="deleteUserByIdRequest" message="tns:deleteUserByIdRequest" />
+      <wsdl:output name="deleteUserByIdResponse" message="tns:deleteUserByIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findAllReservations">
+      <wsdl:input name="findAllReservationsRequest" message="tns:findAllReservationsRequest" />
+      <wsdl:output name="findAllReservationsResponse" message="tns:findAllReservationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findReservationById">
+      <wsdl:input name="findReservationByIdRequest" message="tns:findReservationByIdRequest" />
+      <wsdl:output name="findReservationByIdResponse" message="tns:findReservationByIdResponse" />
     </wsdl:operation>
     <wsdl:operation name="findHotelById">
       <wsdl:input name="findHotelByIdRequest" message="tns:findHotelByIdRequest" />
@@ -403,36 +644,31 @@
     </wsdl:operation>
     <wsdl:operation name="changePassword">
       <wsdl:input name="changePasswordRequest" message="tns:changePasswordRequest" />
+      <wsdl:output name="changePasswordResponse" message="tns:changePasswordResponse" />
     </wsdl:operation>
-    <wsdl:operation name="info">
-      <wsdl:input name="infoRequest" message="tns:infoRequest" />
-      <wsdl:output name="infoResponse" message="tns:infoResponse" />
+    <wsdl:operation name="deleteReservationById">
+      <wsdl:input name="deleteReservationByIdRequest" message="tns:deleteReservationByIdRequest" />
+      <wsdl:output name="deleteReservationByIdResponse" message="tns:deleteReservationByIdResponse" />
     </wsdl:operation>
-    <wsdl:operation name="addUser">
-      <wsdl:input name="addUserRequest" message="tns:addUserRequest" />
+    <wsdl:operation name="updateRoom">
+      <wsdl:input name="updateRoomRequest" message="tns:updateRoomRequest" />
+      <wsdl:output name="updateRoomResponse" message="tns:updateRoomResponse" />
     </wsdl:operation>
-    <wsdl:operation name="deleteRoomById">
-      <wsdl:input name="deleteRoomByIdRequest" message="tns:deleteRoomByIdRequest" />
+    <wsdl:operation name="register">
+      <wsdl:input name="registerRequest" message="tns:registerRequest" />
+      <wsdl:output name="registerResponse" message="tns:registerResponse" />
     </wsdl:operation>
     <wsdl:operation name="findAllUsers">
       <wsdl:input name="findAllUsersRequest" message="tns:findAllUsersRequest" />
       <wsdl:output name="findAllUsersResponse" message="tns:findAllUsersResponse" />
     </wsdl:operation>
-    <wsdl:operation name="register">
-      <wsdl:input name="registerRequest" message="tns:registerRequest" />
-    </wsdl:operation>
-    <wsdl:operation name="updateRoom">
-      <wsdl:input name="updateRoomRequest" message="tns:updateRoomRequest" />
-    </wsdl:operation>
     <wsdl:operation name="deleteHotelById">
       <wsdl:input name="deleteHotelByIdRequest" message="tns:deleteHotelByIdRequest" />
+      <wsdl:output name="deleteHotelByIdResponse" message="tns:deleteHotelByIdResponse" />
     </wsdl:operation>
     <wsdl:operation name="login">
       <wsdl:input name="loginRequest" message="tns:loginRequest" />
       <wsdl:output name="loginResponse" message="tns:loginResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="deleteUserById">
-      <wsdl:input name="deleteUserByIdRequest" message="tns:deleteUserByIdRequest" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HotelsPortSoap11" type="tns:HotelsPort">
@@ -455,6 +691,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="findAllReservationsByUserId">
+      <soap:operation soapAction="" />
+      <wsdl:input name="findAllReservationsByUserIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllReservationsByUserIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="findAllHotels">
       <soap:operation soapAction="" />
       <wsdl:input name="findAllHotelsRequest">
@@ -464,11 +709,32 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="updateHotel">
       <soap:operation soapAction="" />
       <wsdl:input name="updateHotelRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="updateHotelResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="findRoomById">
       <soap:operation soapAction="" />
@@ -484,6 +750,18 @@
       <wsdl:input name="addHotelRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="addHotelResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRoomById">
+      <soap:operation soapAction="" />
+      <wsdl:input name="deleteRoomByIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteRoomByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="findAllRooms">
       <soap:operation soapAction="" />
@@ -494,17 +772,50 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="updateUser">
+    <wsdl:operation name="addReservation">
       <soap:operation soapAction="" />
-      <wsdl:input name="updateUserRequest">
+      <wsdl:input name="addReservationRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="addReservationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addRoom">
       <soap:operation soapAction="" />
       <wsdl:input name="addRoomRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="addRoomResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUserById">
+      <soap:operation soapAction="" />
+      <wsdl:input name="deleteUserByIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteUserByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllReservations">
+      <soap:operation soapAction="" />
+      <wsdl:input name="findAllReservationsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findAllReservationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findReservationById">
+      <soap:operation soapAction="" />
+      <wsdl:input name="findReservationByIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findReservationByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="findHotelById">
       <soap:operation soapAction="" />
@@ -520,27 +831,36 @@
       <wsdl:input name="changePasswordRequest">
         <soap:body use="literal" />
       </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="info">
-      <soap:operation soapAction="" />
-      <wsdl:input name="infoRequest">
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="infoResponse">
+      <wsdl:output name="changePasswordResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="addUser">
+    <wsdl:operation name="deleteReservationById">
       <soap:operation soapAction="" />
-      <wsdl:input name="addUserRequest">
+      <wsdl:input name="deleteReservationByIdRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="deleteReservationByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="deleteRoomById">
+    <wsdl:operation name="updateRoom">
       <soap:operation soapAction="" />
-      <wsdl:input name="deleteRoomByIdRequest">
+      <wsdl:input name="updateRoomRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="updateRoomResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="register">
+      <soap:operation soapAction="" />
+      <wsdl:input name="registerRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="registerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="findAllUsers">
       <soap:operation soapAction="" />
@@ -551,23 +871,14 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="register">
-      <soap:operation soapAction="" />
-      <wsdl:input name="registerRequest">
-        <soap:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="updateRoom">
-      <soap:operation soapAction="" />
-      <wsdl:input name="updateRoomRequest">
-        <soap:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="deleteHotelById">
       <soap:operation soapAction="" />
       <wsdl:input name="deleteHotelByIdRequest">
         <soap:body use="literal" />
       </wsdl:input>
+      <wsdl:output name="deleteHotelByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="login">
       <soap:operation soapAction="" />
@@ -577,12 +888,6 @@
       <wsdl:output name="loginResponse">
         <soap:body use="literal" />
       </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="deleteUserById">
-      <soap:operation soapAction="" />
-      <wsdl:input name="deleteUserByIdRequest">
-        <soap:body use="literal" />
-      </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="HotelsPortService">

@@ -1,7 +1,9 @@
 ﻿using Contracts.Models;
 using Contracts.Responses;
+using Contracts.ViewModels.Admin;
 using Contracts.ViewModels.HotelsListModels;
 using SoapClient.HotelSoap;
+using SoapClient.Windows.Admin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,10 +26,13 @@ namespace SoapClient.Windows.Authorization
     /// </summary>
     public partial class LogIn : Window
     {
+        private readonly string Resources = "F:\\git\\SoapProject\\SoapClient\\SoapClient\\Resources";
+
         public LogIn()
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+            Application.Current.Resources["resources"] = Resources;
         }
 
 
@@ -51,24 +56,20 @@ namespace SoapClient.Windows.Authorization
                 {
                     if (user.IsAdmin)
                     {
-                        var window = new MainWindow();
+                        Application.Current.Resources["user"] = user;
+                        var usersList = PrepareUsers();
+                        var hotelsList = PrepareHotelsList();
+                        var window = new AdminPanel(usersList, hotelsList);
                         Close();
                         window.Show();
                     }
                     else
                     {
-                        try
-                        {
-                            Application.Current.Resources["user"] = user;
-                            var list = PrepareHotelsList();
-                            var window = new HotelsList(list);
-                            Close();
-                            window.Show();
-                        }
-                        catch (Exception)
-                        {
-
-                        }
+                        Application.Current.Resources["user"] = user;
+                        var list = PrepareHotelsList();
+                        var window = new HotelsList(list);
+                        Close();
+                        window.Show();
                     }
                 }
             }
@@ -84,7 +85,7 @@ namespace SoapClient.Windows.Authorization
             try
             {
                 var response = client.login(request);
-                var user = new Account(login, response.user.userName, response.user.userLastName, response.isAdmin);
+                var user = new Account(response.user.id, login, response.user.userName, response.user.userLastName, response.isAdmin);
                 return user;
             }
             catch (Exception e)
@@ -92,17 +93,6 @@ namespace SoapClient.Windows.Authorization
                 MessageBox.Show(e.Message, "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
-        }
-
-        private byte[] ImageConversion(string imageName)
-        {
-
-            FileStream fs = new FileStream(imageName, FileMode.Open, FileAccess.Read);
-            byte[] imgByteArr = new byte[fs.Length];
-            fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
-            fs.Close();
-
-            return imgByteArr;
         }
 
         private List<Hotel> PrepareHotelsList()
@@ -129,6 +119,46 @@ namespace SoapClient.Windows.Authorization
                 return new List<Hotel>();
             }
         }
+
+        private byte[] ImageConversion(string imageName)
+        {
+            var resourcePath = Application.Current.Resources["resources"] + "\\";
+            FileStream fs = new FileStream(resourcePath + imageName, FileMode.Open, FileAccess.Read);
+            byte[] imgByteArr = new byte[fs.Length];
+            fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+
+            return imgByteArr;
+        }
+
+        private List<User> PrepareUsers()
+        {
+            try
+            {
+                var client = new HotelsPortClient();
+                var request = new findAllUsersRequest();
+                var response = client.findAllUsers(request);
+                var list = new List<User>();
+                foreach (var item in response)
+                {
+                    var user = new User(item.id, item.userName, item.userLastName);
+                    if(user.UserId == 1 && user.Name.Equals("admin"))
+                    {
+                        user.IsAdmin = true;
+                    }
+                    list.Add(user);
+                }
+
+                return list;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd", e.Data.ToString(), MessageBoxButton.OK);
+                return new List<User>();
+            }
+
+}
 
         private void SignUp(object sender, EventArgs e)
         {
