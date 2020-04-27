@@ -68,6 +68,9 @@ public class RoomServiceImpl implements RoomService {
                 if (!roomRequest.getRoomName().isEmpty() && roomRequest.getRoomName() != null) {
                     roomFromDb.setRoomName(roomRequest.getRoomName());
                 }
+                if (roomRequest.getHotelId() != 0) {
+                    roomFromDb.setHotelId(new Hotel().withId(roomRequest.getHotelId()));
+                }
                 if (!roomRequest.getRoomDescription().isEmpty() && roomRequest.getRoomDescription() != null) {
                     roomFromDb.setRoomDescription(roomRequest.getRoomDescription());
                 }
