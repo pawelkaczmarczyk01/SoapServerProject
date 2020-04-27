@@ -76,6 +76,9 @@
     <Compile Include="Windows\Admin\AdminRoomsList.xaml.cs">
       <DependentUpon>AdminRoomsList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Admin\EditRoomView.xaml.cs">
+      <DependentUpon>EditRoomView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Authorization\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,9 @@
     </Compile>
     <Compile Include="Windows\HotelsList.xaml.cs">
       <DependentUpon>HotelsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReservationView.xaml.cs">
+      <DependentUpon>ReservationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RoomsList.xaml.cs">
       <DependentUpon>RoomsList.xaml</DependentUpon>
@@ -111,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Admin\EditRoomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Authorization\LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\HotelsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReservationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

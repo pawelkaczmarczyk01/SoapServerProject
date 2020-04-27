@@ -15,8 +15,8 @@
                 <Setter Property="SnapsToDevicePixels" Value="False" />
                 <Setter Property="OverridesDefaultStyle" Value="true" />
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                <Setter Property="BorderBrush" Value="Black" />
-                <Setter Property="Template">
+                <Setter Property="BorderBrush" Value="CornflowerBlue" />
+                <!--<Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="CheckBox">
                             <BulletDecorator Background="Transparent">
@@ -52,6 +52,52 @@
                                 </Trigger>
                                 <Trigger Property="IsFocused" Value="true">
                                     <Setter Property="BorderBrush" Value="White" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="BorderBrush" Value="CornflowerBlue" />
+                                    <Setter TargetName="CheckMark" Property="Stroke" Value="CornflowerBlue" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <BulletDecorator Background="Transparent">
+                                <BulletDecorator.Bullet>
+                                    <Border x:Name="Border"
+                                          Width="15"
+                                         Height="15"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                         BorderThickness="1.5"
+                                         ClipToBounds="True">
+                                        <Path x:Name="CheckMark"
+                                            Width="8"
+                                           Height="8"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Data="M 1.5 0 L 1 6 M 1 7 L 4 1"
+                                            Stretch="Fill"
+                                          Stroke="CornflowerBlue"
+                                          StrokeEndLineCap="Round"
+                                           StrokeStartLineCap="Round"
+                                           StrokeThickness="2" />
+                                    </Border>
+                                </BulletDecorator.Bullet>
+                                <ContentPresenter Margin="4,0,0,0"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               RecognizesAccessKey="True" />
+                            </BulletDecorator>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="false">
+                                    <Setter Property="BorderBrush" Value="CornflowerBlue" />
+                                    <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter Property="BorderBrush" Value="CornflowerBlue" />
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="false">
                                     <Setter Property="BorderBrush" Value="CornflowerBlue" />

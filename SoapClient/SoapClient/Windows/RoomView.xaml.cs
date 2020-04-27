@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Contracts.Models;
 using Contracts.ViewModels.HotelsListModels;
+using Contracts.ViewModels.ReservationView;
 using Contracts.ViewModels.RoomView;
 using SoapClient.HotelSoap;
 using SoapClient.Windows.Authorization;
@@ -39,6 +40,9 @@ namespace SoapClient.Windows
             MenuData.DataContext = CurrentUser;
             ButtonData.DataContext = CurrentUser;
             RoomDetails.DataContext = Room;
+            ReservationButton.Visibility = CurrentUser.IsAdmin == true ? Visibility.Hidden : Visibility.Visible;
+            ButtonData.Visibility = CurrentUser.IsAdmin == true ? Visibility.Hidden : Visibility.Visible;
+            MenuFirstTab.Visibility = CurrentUser.IsAdmin == true ? Visibility.Hidden : Visibility.Visible;
         }
 
         private void Logout(object sender, RoutedEventArgs e)
@@ -75,13 +79,45 @@ namespace SoapClient.Windows
 
         private byte[] ImageConversion(string imageName)
         {
-
-            FileStream fs = new FileStream(imageName, FileMode.Open, FileAccess.Read);
+            var resourcePath = Application.Current.Resources["resources"] + "\\";
+            FileStream fs = new FileStream(resourcePath + imageName, FileMode.Open, FileAccess.Read);
             byte[] imgByteArr = new byte[fs.Length];
             fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
             fs.Close();
 
             return imgByteArr;
+        }
+
+        private void ReserveRoom(object sender, RoutedEventArgs e)
+        {
+            var reservations = PrepareReservations();
+
+            var window = new ReservationView(reservations, Room.RoomId);
+            window.ShowDialog();
+        }
+
+        private List<ReservationVM> PrepareReservations()
+        {
+            var client = new HotelsPortClient();
+            var request = new findAllReservationsRequest();
+            var response = client.findAllReservations(request);
+
+            var list = new List<ReservationVM>();
+            foreach (var item in response)
+            {
+                if (item.roomId == Room.RoomId)
+                {
+                    if (item.roomReservationFrom.Year >= DateTime.Now.Year)
+                    {
+                        if (item.roomReservationFrom.Day >= DateTime.Now.Day)
+                        {
+                            var reservation = new ReservationVM(item.id, item.roomId, item.roomReservationFrom, item.roomReservationTo);
+                            list.Add(reservation);
+                        }
+                    }                 
+                }        
+            }
+            return list;
         }
     }
 }

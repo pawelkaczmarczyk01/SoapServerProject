@@ -41,6 +41,8 @@ namespace SoapClient.Windows
             CurrentUser = (Account)Application.Current.Resources["user"];
             MenuData.DataContext = CurrentUser;
             ButtonData.DataContext = CurrentUser;
+            ButtonData.Visibility = CurrentUser.IsAdmin == true ? Visibility.Hidden : Visibility.Visible;
+            MenuFirstTab.Visibility = CurrentUser.IsAdmin == true ? Visibility.Hidden : Visibility.Visible;
         }
 
         private string GetHotelName()
@@ -108,31 +110,13 @@ namespace SoapClient.Windows
 
         private byte[] ImageConversion(string imageName)
         {
-
-            FileStream fs = new FileStream(imageName, FileMode.Open, FileAccess.Read);
+            var resourcePath = Application.Current.Resources["resources"] + "\\";
+            FileStream fs = new FileStream(resourcePath + imageName, FileMode.Open, FileAccess.Read);
             byte[] imgByteArr = new byte[fs.Length];
             fs.Read(imgByteArr, 0, Convert.ToInt32(fs.Length));
             fs.Close();
 
             return imgByteArr;
-        }
-
-        private void RoomNameEnter(object sender, RoutedEventArgs e)
-        {
-            if (RoomNameBox.Text == "Wyszukaj pokoju")
-            {
-                RoomNameBox.Text = "";
-                RoomNameBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
-            }
-        }
-
-        private void RoomNameLeave(object sender, RoutedEventArgs e)
-        {
-            if (RoomNameBox.Text == "" || RoomNameBox.Text == null)
-            {
-                RoomNameBox.Text = "Wyszukaj pokoju";
-                RoomNameBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
-            }
         }
 
         private void Logout(object sender, RoutedEventArgs e)

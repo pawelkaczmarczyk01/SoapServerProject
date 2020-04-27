@@ -52,6 +52,7 @@
     <Compile Include="ViewModels\Admin\User.cs" />
     <Compile Include="ViewModels\HotelsListModels\Hotel.cs" />
     <Compile Include="ViewModels\HotelsListModels\Room.cs" />
+    <Compile Include="ViewModels\ReservationView\ReservationVM.cs" />
     <Compile Include="ViewModels\RoomView\RoomDetails.cs" />
   </ItemGroup>
   <ItemGroup />

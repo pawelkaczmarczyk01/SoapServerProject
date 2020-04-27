@@ -9,16 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SoapClient.Windows.Admin
 {
@@ -38,6 +32,8 @@ namespace SoapClient.Windows.Admin
         private int? SelectedReservationId { get; set; }
         private string ImageHotelPathWithName { get; set; }
         private string ImageHotelPath { get; set; }
+        private string ImageRoomPathWithName { get; set; }
+        private string ImageRoomPath { get; set; }
 
         public AdminPanel(List<User> users, List<Hotel> hotels)
         {
@@ -54,6 +50,7 @@ namespace SoapClient.Windows.Admin
             listOfHotels.ItemsSource = HotelsList;
             ReservationsList = PrepareReservationsList();
             listOfReservations.ItemsSource = ReservationsList;
+            HotelsSelector.ItemsSource = HotelsList;
         }
 
         private List<Reservation> PrepareReservationsList()
@@ -245,6 +242,8 @@ namespace SoapClient.Windows.Admin
             listOfUsers.Items.Refresh();
             listOfHotels.ItemsSource = HotelsList;
             listOfHotels.Items.Refresh();
+            HotelsSelector.ItemsSource = HotelsList;
+            HotelsSelector.Items.Refresh();
         }
 
         private List<Hotel> PrepareHotelsList()
@@ -332,7 +331,79 @@ namespace SoapClient.Windows.Admin
             }
         }
 
-        private void AddImageToHotel(object sender, RoutedEventArgs e)
+        private void RoomNameEnter(object sender, RoutedEventArgs e)
+        {
+            if (RoomName.Text == "Podaj nazwę pokoju")
+            {
+                RoomName.Text = "";
+                RoomName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+            }
+        }
+
+        private void RoomNameLeave(object sender, RoutedEventArgs e)
+        {
+            if (RoomName.Text == "" || RoomName.Text == null)
+            {
+                RoomName.Text = "Podaj nazwę pokoju";
+                RoomName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+            }
+        }
+
+        private void RoomDescriptionEnter(object sender, RoutedEventArgs e)
+        {
+            if (RoomDescription.Text == "Wpisz opis pokoju")
+            {
+                RoomDescription.Text = "";
+                RoomDescription.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+            }
+        }
+
+        private void RoomDescriptionLeave(object sender, RoutedEventArgs e)
+        {
+            if (RoomDescription.Text == "" || RoomDescription.Text == null)
+            {
+                RoomDescription.Text = "Wpisz opis pokoju";
+                RoomDescription.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+            }
+        }
+
+        private void RoomPriceEnter(object sender, RoutedEventArgs e)
+        {
+            if (RoomPrice.Text == "Podaj cenę za dobę")
+            {
+                RoomPrice.Text = "";
+                RoomPrice.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+            }
+        }
+
+        private void RoomPriceLeave(object sender, RoutedEventArgs e)
+        {
+            if (RoomPrice.Text == "" || RoomPrice.Text == null)
+            {
+                RoomPrice.Text = "Podaj cenę za dobę";
+                RoomPrice.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+            }
+        }
+
+        private void RoomQuantityOfPeopleEnter(object sender, RoutedEventArgs e)
+        {
+            if (RoomQuantityOfPeople.Text == "Podaj liczbę osób")
+            {
+                RoomQuantityOfPeople.Text = "";
+                RoomQuantityOfPeople.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+            }
+        }
+
+        private void RoomQuantityOfPeopleLeave(object sender, RoutedEventArgs e)
+        {
+            if (RoomQuantityOfPeople.Text == "" || RoomQuantityOfPeople.Text == null)
+            {
+                RoomQuantityOfPeople.Text = "Podaj liczbę osób";
+                RoomQuantityOfPeople.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+            }
+        }
+
+        private void AddHotelImage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "PNG (*.png)|*.png|" +
@@ -344,9 +415,9 @@ namespace SoapClient.Windows.Admin
                 ImageHotelPathWithName = dialog.FileName;
                 var fileName = ImageHotelPathWithName.Split('\\').Last();
                 ImageHotelPath = ImageHotelPathWithName.Substring(0, ImageHotelPathWithName.Length - fileName.Length - 1);
-                ImageName.Text = fileName;
+                HotelImageName.Text = fileName;
                 AddHotelButton.IsEnabled = true;
-                ImageName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+                HotelImageName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
             }
         }
 
@@ -358,46 +429,124 @@ namespace SoapClient.Windows.Admin
                 return;
             }
 
-            SaveImage();
+            SaveImage(ImageHotelPath, HotelImageName.Text);
 
             var client = new HotelsPortClient();
             var request = new addHotelRequest();
             var reqHotel = new hotelRequest();
             reqHotel.hotelName = HotelName.Text;
-            reqHotel.hotelImagePath = ImageName.Text;
+            reqHotel.hotelImagePath = HotelImageName.Text;
             request.hotel = reqHotel;
             var response = client.addHotel(request);
+
+            HotelName.Text = "Podaj nazwę hotelu";
+            HotelName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Silver"));
+            HotelImageName.Text = "Nie dodano zdjęcia";
+            AddHotelButton.IsEnabled = false;
+            HotelImageName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("IndianRed"));
+            HotelsSelector.Items.Refresh();
         }
 
-        private void SaveImage()
+        private void SaveImage(string imagePath, string imageName)
         {
             var resourcePath = Application.Current.Resources["resources"];
-            var imageName = ImageName.Text;
-            string[] filePaths = Directory.GetFiles(ImageHotelPath);
-            foreach(var fileName in filePaths)
+            string[] filePaths = Directory.GetFiles(imagePath);
+
+            foreach (var fileName in filePaths)
             {
                 if (fileName.Contains(imageName))
                 {
+                    if(File.Exists(resourcePath + "\\" + imageName))
+                    {
+                        File.Delete(resourcePath + "\\" + imageName);
+                    }
                     File.Copy(fileName, resourcePath + "\\" + imageName);
                 }
             }
-            //foreach (var filename in filePaths)
-            //{
-            //    string file = filename.ToString();
-
-            //    //Do your job with "file"  
-            //    string str = resourcePath + file.ToString();
-            //    if (!File.Exists(str))
-            //    {
-            //        File.Copy(file, str);
-            //    }
-            //}
         }
 
-        public void readfiles()
+        private void AddRoomImage(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "PNG (*.png)|*.png|" +
+                "JPEG (*.jpeg)|*.jpeg|" +
+                "JPG (*.jpg)|*.jpg";
 
+            if (dialog.ShowDialog() == true)
+            {
+                ImageRoomPathWithName = dialog.FileName;
+                var fileName = ImageRoomPathWithName.Split('\\').Last();
+                ImageRoomPath = ImageRoomPathWithName.Substring(0, ImageRoomPathWithName.Length - fileName.Length - 1);
+                RoomImageName.Text = fileName;
+                AddRoomButton.IsEnabled = true;
+                RoomImageName.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+            }
         }
+
+        private void AddRoom(object sender, RoutedEventArgs e)
+        {
+            if (RoomName.Text == "" || RoomName.Text == null || RoomName.Text.Equals("Podaj nazwę pokoju"))
+            {
+                MessageBox.Show("Podaj nazwę pokoju", "Nie podano nazwy pokoju", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var client = new HotelsPortClient();
+            var request = new addRoomRequest();
+            var reqRoom = new roomRequest();
+
+            reqRoom.roomName = RoomName.Text;
+            reqRoom.roomDescription = RoomDescription.Text;
+            reqRoom.roomImagePath = RoomImageName.Text;
+
+            double price = 0;
+            if(double.TryParse(RoomPrice.Text, out price))
+            {
+                reqRoom.roomPrice = price;
+            }
+            else
+            {
+                MessageBox.Show("Podany niepoprawny format ceny", "Nie prawidłowy format ceny", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+          
+            int quantityOfPeople = 0;
+            if (int.TryParse(RoomQuantityOfPeople.Text, out quantityOfPeople))
+            {
+                reqRoom.roomQuantityOfPeople = quantityOfPeople;
+            }
+            else
+            {
+                MessageBox.Show("Podany niedopuszczalne znaki przy liczbie osób", "Nie prawidłowy format liczby osób", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            var index = HotelsSelector.SelectedIndex;
+            reqRoom.hotelId = HotelsList.Find(h => h.Name == HotelsList.ElementAt(index).Name).Id;
+            reqRoom.roomBathroom = Bathroom.IsChecked;
+            reqRoom.roomDesk = Desk.IsChecked;
+            reqRoom.roomFridge = Fridge.IsChecked;
+            reqRoom.roomSafe = Safe.IsChecked;
+            reqRoom.roomTv = Tv.IsChecked;
+            request.room = reqRoom;
+
+            SaveImage(ImageRoomPath, RoomImageName.Text);
+
+            var response = client.addRoom(request);
+
+            MessageBox.Show("Dodano nowy pokój", "Dodawanie pokoju", MessageBoxButton.OK, MessageBoxImage.Information);
+            RoomName.Text = "";
+            RoomDescription.Text = "";
+            RoomImageName.Text = "";
+            RoomPrice.Text = "";
+            RoomQuantityOfPeople.Text = "";
+            Bathroom.IsChecked = false;
+            Desk.IsChecked = false;
+            Fridge.IsChecked = false;
+            Safe.IsChecked = false;
+            Tv.IsChecked = false;
+            AddRoomButton.IsEnabled = false;
+        }
+
         //private void DeleteReservation(object sender, MouseButtonEventArgs e)
         //{
         //    if (SelectedReservationId == null)

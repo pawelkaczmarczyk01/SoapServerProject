@@ -143,7 +143,7 @@ namespace SoapClient.Windows.Admin
             {
                 return;
             }
-            MessageBoxResult boxResult = MessageBox.Show("Czy jesteś pewien, że chcesz usunąć użytkownika?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult boxResult = MessageBox.Show("Czy jesteś pewien, że chcesz usunąć pokój?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (boxResult == MessageBoxResult.No)
             {
                 return;
@@ -177,7 +177,7 @@ namespace SoapClient.Windows.Admin
                 i++;
             }
             var room = ListOfRooms[i];
-            var window = new Window();
+            var window = new EditRoomView(room.RoomId);
             window.ShowDialog();
         }
 

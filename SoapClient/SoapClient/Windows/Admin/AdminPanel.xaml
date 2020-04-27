@@ -139,9 +139,9 @@
 
                                 <Button Click="DeleteUser" Content="Usuń użykownika" Grid.Row="6" Margin="88,10,87,43" Padding="5" Grid.ColumnSpan="2"/>
 
-                                <Rectangle Grid.ColumnSpan="2" Margin="10,59,10,26" StrokeThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Fill="CornflowerBlue" Height="4" Grid.Row="5"/>
+                                <Rectangle Grid.ColumnSpan="2" Margin="10,69,10,14" StrokeThickness="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Fill="CornflowerBlue" Height="4" Grid.Row="5"/>
 
-                                <ListBox Name="listOfReservationsByUser" Margin="10,69,0,-638" MouseDoubleClick="ChooseReservationByUser" Grid.Row="5" Grid.ColumnSpan="2" IsEnabled="true">
+                                <ListBox Name="listOfReservationsByUser" Margin="10,69,0,-635" MouseDoubleClick="ChooseReservationByUser" Grid.Row="5" Grid.ColumnSpan="2">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Border Name="BorderBox" Width="380" MaxHeight="100" Margin="7" Padding="5 5 5 5" Background="Azure" CornerRadius="8" BorderBrush="CornflowerBlue" BorderThickness="5">
@@ -328,12 +328,78 @@
             <TabItem Header="Dodaj hotel">
                 <Grid>
                     <TextBox Name="HotelName" GotFocus="HotelNameEnter" LostFocus="HotelNameLeave" Foreground="Silver" Height="40" Margin="748,242,707,0" FontSize="20" TextWrapping="Wrap" Text="Podaj nazwę hotelu" TextAlignment="Center" VerticalAlignment="Top"/>
-                    <Button Content="Dodaj zdjęcie" Foreground="Silver" Height="40" Margin="748,329,704,0" FontSize="20"  VerticalAlignment="Top" Click="AddImageToHotel"/>
-                    <TextBlock Name="ImageName" Text="Nie dodano zdjęcia" Foreground="IndianRed" FontWeight="Bold" Height="60" Margin="640,384,600,0" FontSize="20" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    <Button Content="Dodaj zdjęcie" Foreground="Silver" Height="40" Margin="748,329,704,0" FontSize="20"  VerticalAlignment="Top" Click="AddHotelImage"/>
+                    <TextBlock Name="HotelImageName" Text="Nie dodano zdjęcia" Foreground="IndianRed" FontWeight="Bold" Height="60" Margin="640,384,600,0" FontSize="20" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                     <Button Name="AddHotelButton" Content="Dodaj hotel" Foreground="Silver" Height="40" Margin="751,693,704,0" FontSize="20" IsEnabled="False"  VerticalAlignment="Top" Click="AddHotel"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Dodaj pokój">
+                <Grid>
+                    <TextBlock Margin="785,60,980,859" Text="Wybierz hotel" FontSize="20" Foreground="IndianRed" FontWeight="Bold" ></TextBlock>
+                    <ComboBox Name="HotelsSelector" ItemsSource="{Binding Path=HotelsList}" SelectedValue="HotelId" DisplayMemberPath="Name" FontSize="20" Margin="992,60,704,860">
+                    </ComboBox>
+                    <TextBox Name="RoomName" GotFocus="RoomNameEnter" LostFocus="RoomNameLeave" Foreground="Silver" Height="40" Margin="751,156,704,0" FontSize="20" TextWrapping="Wrap" Text="Podaj nazwę pokoju" TextAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox Name="RoomDescription" GotFocus="RoomDescriptionEnter" LostFocus="RoomDescriptionLeave" Foreground="Silver" Height="184" Margin="429,240,346,0" FontSize="20" TextWrapping="Wrap" Text="Wpisz opis pokoju" VerticalAlignment="Top"/>
+                    <Button Content="Dodaj zdjęcie" Foreground="Silver" Height="40" Margin="752,740,704,0" FontSize="20"  VerticalAlignment="Top" Click="AddRoomImage" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0.019"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                    <TextBlock Name="RoomImageName" Text="Nie dodano zdjęcia" Foreground="IndianRed" FontWeight="Bold" Height="65" Margin="785,796,726,0" FontSize="20" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Width="397"/>
+                    <TextBox Name="RoomPrice" GotFocus="RoomPriceEnter" LostFocus="RoomPriceLeave" Foreground="Silver" Height="40" Margin="513,482,942,0" FontSize="20" TextWrapping="Wrap" Text="Podaj cenę za dobę" TextAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBox Name="RoomQuantityOfPeople" GotFocus="RoomQuantityOfPeopleEnter" LostFocus="RoomQuantityOfPeopleLeave" Foreground="Silver" Height="40" Margin="1033,482,422,0" FontSize="20" TextWrapping="Wrap" Text="Podaj liczbę osób" TextAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Name="AddRoomButton" Content="Dodaj pokój" Foreground="Silver" Height="40" Margin="751,869,704,0" FontSize="20" IsEnabled="False"  VerticalAlignment="Top" Click="AddRoom"/>
+
+                    <TextBlock Margin="853,554,751,337" FontWeight="Bold" FontSize="27" TextAlignment="Center">
+                    Wyposażenie
+                    </TextBlock>
+
+                    <TextBlock Margin="372,638,1428,279" FontWeight="Bold" FontSize="20">
+                    Łazienka:
+                    </TextBlock>
+                    <CheckBox Name="Bathroom" Margin="480,641,1394,276">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock Margin="658,640,1142,277" FontWeight="Bold" FontSize="20">
+                    Biurko:
+                    </TextBlock>
+                    <CheckBox Name="Desk" Margin="748,641,1126,276">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock Margin="925,640,875,277" FontWeight="Bold" FontSize="20">
+                    Lodówka:
+                    </TextBlock>
+                    <CheckBox Name="Fridge" Margin="1599,641,268,276">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock Margin="1237,640,563,277" FontWeight="Bold" FontSize="20">
+                    Sejf:
+                    </TextBlock>
+                    <CheckBox Name="Safe" Margin="1297,639,569,278">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock Margin="1484,640,316,277" FontWeight="Bold" FontSize="20">
+                    Telewizor:
+                    </TextBlock>
+                    <CheckBox Name="Tv" Margin="1039,641,832,276">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
